@@ -5,7 +5,7 @@ use App\Http\Controllers\SorteoController;
 use App\Models\Pago;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/admin/sorteos', [SorteoController::class, 'index'])->name('sorteo.index');
+Route::get('/', [SorteoController::class, 'index'])->name('sorteo.index');
 Route::get('/admin/sorteos/create', [SorteoController::class, 'create'])->name('sorteo.create');
 Route::post('/admin/sorteos/store', [SorteoController::class, 'store'])->name('sorteo.store');
 Route::get('/admin/sorteos/{sorteo}/edit', [SorteoController::class, 'edit'])->name('sorteo.edit');

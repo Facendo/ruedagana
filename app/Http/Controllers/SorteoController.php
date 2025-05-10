@@ -13,7 +13,9 @@ class SorteoController extends Controller
     
     public function index()
     {
-        //retorna la vista principal de sorteo
+        $sorteos = Sorteo::all();
+        return view('index', compact('sorteos'));
+            
     }
 
     
@@ -31,11 +33,15 @@ class SorteoController extends Controller
         $sorteo = new Sorteo();
         $sorteo->sorteo_nombre = $request->sorteo_nombre;
         $sorteo->sorteo_descripcion = $request->sorteo_descripcion;
+        
         if ($request->hasFile('sorteo_imagen')) {
-            Storage::put('sorteo', $request->file('sorteo_imagen'));
-            $img = $request->file('sorteo_imagen');
-            $sorteo->sorteo_imagen = 'img/sorteo/' . $img->getClientOriginalName();
+            $image = $request->file('sorteo_imagen');
+            $filename = $image->getClientOriginalName();
+            $path = $image->storeAs('sorteo', $filename, 'public'); // Guarda con el nombre original
+            $sorteo->sorteo_imagen = 'sorteo/' . $filename; // Guarda la ruta con el nombre original
         }
+
+        
         $sorteo->sorteo_fecha_inicio = $request->sorteo_fecha_inicio;
         $sorteo->sorteo_fecha_fin= $request->sorteo_fecha_fin;
         $sorteo->created_at = now();
