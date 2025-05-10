@@ -32,7 +32,7 @@
                 </div>
                 <div>
                     <label for="imagen">Subir comprobante de pago</label>
-                    <input type="file" id="imagen" name="imagen" accept="image/*">
+                    <input type="file" id="imagen_comprobante" name="imagen_comprobante" accept="image/png, image/jpeg, image/jpg">
                 </div>
                 <button class="button" type="submit">enviar</button>
             </form>

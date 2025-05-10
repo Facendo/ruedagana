@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('sorteo', function (Blueprint $table) {
             $table->integer('id_sorteo')->autoIncrement()->unique()->primary();
             $table->string('sorteo_nombre');
+            $table->string('sorteo_descripcion');
+            $table->string('sorteo_imagen');
             $table->date('sorteo_fecha_inicio');
             $table->date('sorteo_fecha_fin');
             $table->timestamps();

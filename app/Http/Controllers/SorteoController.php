@@ -17,6 +17,7 @@ class SorteoController extends Controller
     public function create()
     {
         //retorna la vista para crear un nuevo sorteo
+        return view('sorteo.create');
         
     }
 

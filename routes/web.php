@@ -10,3 +10,4 @@ Route::view('/compra', 'compra')->name('compra');
 
 require __DIR__.'/auth.php';
 require __DIR__.'/cliente.php';
+require __DIR__.'/admin.php';
