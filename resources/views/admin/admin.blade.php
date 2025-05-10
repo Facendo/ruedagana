@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{{asset('css/styles.css')}}">
 
     <title>Document</title>
@@ -57,11 +58,14 @@
                     <input type="text" name="descripcion" id="descripcion" placeholder="Descripcion del sorteo" class="input_reg_sorteo">
                     <input type="file" name="imagen" id="imagen" placeholder="Imagen del sorteo" class="input_reg_sorteo">
                     <br>
-                    <input type="submit" value="Registrar sorteo" class="btn_reg_sorteo button">
+                    <input type="submit" value="Registrar sorteo" class="button_form button">
                 </form>
             </div>
         </div>
     </div>
+
+
+    <box-icon name='message-alt-x'></box-icon>
 
     
     <div class="container">
@@ -74,11 +78,13 @@
                     <input type="text" name="descripcion" id="descripcion" placeholder="Descripcion del sorteo" class="input_reg_sorteo">
                     <input type="file" name="imagen" id="imagen" placeholder="Imagen del sorteo" class="input_reg_sorteo">
                     <br>
-                    <input type="submit" value="Registrar sorteo" class="btn_reg_sorteo button">
+                    <input type="submit" value="Registrar sorteo" class="button_form button">
                 </form>
             </div>
         </div>
     </div>
+
+    
 
     <div id="section_ventas_admin" class="container">
         <div class="container_table">
@@ -92,18 +98,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($premios as $premio)
-                    <tr>
-                        <td>{{ $premio->id_premio }}</td>
-                        <td>{{ $premio->id_sorteo }}</td>
-                        <td>{{ $premio->premio_nombre }}</td>
-                        <td>{{ $premio->premio_descripcion }}</td>
-                        <td>
-                            <a href="#">Eliminar</a>
-                            <a href="#">Editar</a>
-                        </td>
-                    </tr>
-                    @endforeach
+                    <i class="ti ti-trash"></i>
                 </tbody>
             </table>
         </div>
@@ -111,6 +106,6 @@
 
 
 
-        
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>    
 </body>
 </html>
