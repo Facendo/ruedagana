@@ -43,7 +43,7 @@ class ClienteController extends Controller
         $pago->estado_pago = "pendiente";
         $img = $request->file('imagen_comprobante');
         $img->move(public_path('img/comprobantes'), 'comprobante_'.$request->referencia);
-        $pago->dir_imagen_comprobante = $request->imagen_comprobante;
+        $pago->dir_imagen_comprobante = 'img/comprobante/'.'comprobante'.$request->referencia;
         $pago->created_at = now();
         $pago->updated_at = now();
         $pago->save();
