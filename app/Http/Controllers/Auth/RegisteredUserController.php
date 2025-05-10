@@ -35,16 +35,22 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        if ($request->email == 'Cpazcastillo460@gmail.com' || $request->email == 'Rocktoyonyo@gmail.com' || $request->email == 'hernandezfrancisco672@gmail.com' || $request->email == 'galantonj18@gmail.com'){
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
+        
 
-        event(new Registered($user));
+            event(new Registered($user));
 
-        Auth::login($user);
+            Auth::login($user);
 
-        return redirect(route('index', absolute: false));
+            return redirect(route('index', absolute: false));
+        }
+        else{
+            return redirect()->route('register')->with('error', 'No tienes permisos para registrarte');
+        }
     }
 }

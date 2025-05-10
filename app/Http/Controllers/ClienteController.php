@@ -41,7 +41,11 @@ class ClienteController extends Controller
         $pago->fecha_pago = $request->fecha_de_pago;
         $pago->metodo_de_pago = $request->metodo_de_pago;
         $pago->estado_pago = "pendiente";
-        $pago->dir_imagen_comprobante = $request->dir_imagen_comprobante;
+        $img = $request->file('imagen_comprobante');
+        $img->move(public_path('img/comprobantes'), 'comprobante_'.$request->referencia);
+        $pago->dir_imagen_comprobante = $request->imagen_comprobante;
+        $pago->created_at = now();
+        $pago->updated_at = now();
         $pago->save();
         return redirect()->route('cliente.index')->with('success', 'Cliente registrado exitosamente.');
     }
