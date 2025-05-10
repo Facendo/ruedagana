@@ -1,0 +1,224 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;  
+}
+
+body{
+    color: #fff;
+    font-family: arial;
+    background-color: rgb(35, 35, 35);
+}
+
+.container{
+    width: 100%;
+}
+
+img.img_logo{
+    width: 70%;
+    height: 50%;
+    
+}
+
+.section_subtitle{
+    text-align: center;
+    margin: 50px;
+    color: rgb(10, 180, 171);
+}
+
+.button{
+    width: 100px;
+    text-decoration: none;
+    outline: none;
+    padding: 10px;
+    border: 2px solid blue;
+    color: red;
+}
+
+
+
+/*  
+COLORS
+RGB(17,17,17) PRINCIPAL (BACKGROUND COLOR)
+RGB(254,180,3) OBJECT COLOR
+RGB(34,34,34) WINDOWED
+RGB(50,50,61) SELECTOR
+RGB(10, 180, 171) BLUE COLOR
+
+*/
+
+nav.menu{
+    width: 100%;
+    height: 10vh;
+    background-color: rgb(15, 15, 15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+h2{
+    font-family: sans-serif;
+    color: rgb(254, 180, 3)
+}
+
+.container_info{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container_logo, .containertext_presentacion{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+/* --------- MOSTRAR TARGETAS DE PREMIOS  -----------   */
+
+
+.img_card{
+    width: 100%;
+    height: 350px;
+    border-radius: 10px 10px 0 0;
+}
+
+
+.container_card{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.card{
+    width: 30%;
+    height: 600px;
+    background-color: rgb(55, 55, 55);  
+    border-radius: 10px;
+    margin: 30px 0;
+}
+
+.title_card{
+    text-align: center;
+    margin: 15px;
+    color: rgb(254, 180, 3)
+}
+
+p.text_card{
+    text-align: center;
+    margin: 15px;
+}
+
+/* --------- INFRMACION DE PAGO -----------   */
+
+img.logo_bdv{
+    width: 70px;
+    margin: 10px 0 15px 0;
+}
+
+img.logo_bp{
+    width: 150px;
+    margin: 10px 0 15px 0;
+}
+
+img.logo_zin{
+    width: 55px;
+    margin: 10px 0 15px 0;
+}
+
+img.logo_binance{
+    width: 55px;
+    margin: 10px 0 15px 0;
+}
+
+.card_datos{
+    width: 300px;
+    height: 300px;
+    background-color: rgb(55, 55, 55);  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.container_datos{
+    width: 80%;
+    height: 80%;
+    text-align: center;
+}
+
+h3{
+    margin-bottom: 15px;
+}
+
+footer#foot{
+    width: 100%;
+    height: 45vh;
+    background-color: rgb(254,180,3);
+}
+
+
+.contenido_foot{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cont_foot{
+    width: 20%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ---------- COMPRAS ----------- */
+
+
+.container_compra{
+    width: 100%;
+    border: 2px solid red;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cont_form{
+    width: 50%;
+    min-height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid green;
+}
+
+form.form_compra{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+input{
+    width: 60%;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 30px;
+}
+
+
+
+
+
