@@ -21,7 +21,7 @@
                 
                 <div class="container_logo">
                     <img src="{{asset('img/')}}" alt="">
-                    <img src="../../public/img/logo_ruedaygana_sf.png" class="img_logo" alt="imagenlogo">
+                    <img src="{{asset('img/logo_ruedaygana_sf.png')}}" class="img_logo" alt="imagenlogo">
                 </div>
                 
                 <div class="containertext_presentacion">
@@ -41,7 +41,7 @@
 
                 <div class="card">
                     <figure>
-                        <img src="../../public/img/moto.webp" alt="img_premio" class="img_card">
+                        <img src="{{asset('img/moto.webp')}}" alt="img_premio" class="img_card">
                     </figure>
                     <div class="contenido">
                         <h3 class="title_card">Premio</h3>
@@ -68,7 +68,7 @@
 
                 <div class="card">
                     <figure>
-                        <img src="../../public/img/moto.webp" alt="img_premio" class="img_card">
+                        <img src="{{asset('img/moto.webp')}}" alt="img_premio" class="img_card">
                     </figure>
                     <div class="contenido">
                         <h3 class="title_card">Premio</h3>
@@ -95,7 +95,7 @@
 
                 <div class="card_datos">
                     <div class="container_datos">
-                        <img src="../../public/img/banesco_logo.png" alt="imagenlogo" class="logo_bdv">
+                        <img src="{{asset('img/banesco_logo.png')}}" alt="imagenlogo" class="logo_bdv">
                         <div class="datos_pago">
                             <h3>Pago Movil Banesco</h3>
                             <p class="data">0134</p>
@@ -107,7 +107,7 @@
 
                 <div class="card_datos">
                     <div class="container_datos">
-                        <img src="../../public/img/banplus_logo.png" alt="imagenlogo" class="logo_bp">
+                        <img src="{{asset('img/banplus_logo.png')}}" alt="imagenlogo" class="logo_bp">
                         <div class="datos_pago">
                             <h3>Pago Movil Banplus</h3>
                             <p class="data">0174</p>
@@ -119,7 +119,7 @@
 
                 <div class="card_datos">
                     <div class="container_datos">
-                        <img src="../../public/img/zelle_logo.webp" alt="imagenlogo" class="logo_zin">
+                        <img src="{{asset('img/zelle_logo.webp')}}" alt="imagenlogo" class="logo_zin">
                         <div class="datos_pago">
                             <h3>Zinli</h3>
                             <p class="data">Jesus Melean</p>
@@ -130,7 +130,7 @@
 
                 <div class="card_datos">
                     <div class="container_datos">
-                        <img src="../../public/img/binance_logo.png" alt="imagenlogo" class="logo_binance">
+                        <img src="{{asset('img/binance_logo.png')}}" alt="imagenlogo" class="logo_binance">
                         <div class="datos_pago">
                             <h3>Binance</h3>
                             <p class="data">Jesus Melean</p>

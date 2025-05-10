@@ -25,14 +25,12 @@ class SorteoController extends Controller
     public function store(Request $request)
     {
         //Funcion para almacenar un nuevo sorteo
-        request()->validate([
-            'nombre' => 'required|string|max:255',
-            'fecha' => 'required|date',
-            'hora' => 'required|date_format:H:i',
-            'estado' => 'required|boolean',
-        ]);
         $sorteo = new Sorteo();
         $sorteo->sorteo_nombre = $request->sorteo_nombre;
+        $sorteo->sorteo_descripcion = $request->sorteo_descripcion;
+        $img = $request->file('imagen_comprobante');
+        $img->move(public_path('img/sorteo'),$img->getClientOriginalName());
+        $sorteo->sorteo_imagen = 'img/sorteo/'.$img->getClientOriginalName();
         $sorteo->sorteo_fecha_inicio = $request->sorteo_fecha_inicio;
         $sorteo->sorteo_fecha_fin= $request->sorteo_fecha_fin;
         $sorteo->created_at = $request->now();
