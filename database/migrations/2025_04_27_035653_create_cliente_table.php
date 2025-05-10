@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('cliente', function (Blueprint $table) {
             $table->string('cedula')->primary();
-            //$table->integer('id_sorteo');
+            $table->integer('id_sorteo');
             $table->string('nombre');
             $table->string('apellido');
             $table->string('telefono');
@@ -21,12 +21,12 @@ return new class extends Migration
             $table->integer('cantidad_comprados')->default(0)->nullable();
             $table->date('fecha_de_pago');
 
-            /*$table->foreign('id_sorteo')
+            $table->foreign('id_sorteo')
                 ->references('id_sorteo')
                 ->on('sorteo')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            */
+            
         });
     }
 

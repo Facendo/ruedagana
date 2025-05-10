@@ -37,7 +37,7 @@ class TicketController extends Controller
         $ticket->created_at = now();
         $ticket->updated_at = now();
         $ticket->save();
-        //return redirect()->route('ticket.index')->with('success', 'Ticket created successfully.');
+        return redirect()->route('admin.index')->with('success', 'Ticket created successfully.');
     }
 
     private function buildtoken($length = 8)
