@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ticket;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class TicketController extends Controller
 {
@@ -26,6 +28,7 @@ class TicketController extends Controller
      */
     public function store(Request $request)
     {
+        $admin = User::all();
         $ticket = new Ticket();
         $ticket->id_sorteo = $request->id_sorteo;
         $ticket->ticket_token = $this->buildtoken();
@@ -37,6 +40,11 @@ class TicketController extends Controller
         $ticket->created_at = now();
         $ticket->updated_at = now();
         $ticket->save();
+
+        Mail::to($ticket->correo_cliente);
+        foreach ($admin as $user) {
+            Mail::to($user->email);
+        }
         return redirect()->route('admin.index')->with('success', 'Ticket created successfully.');
     }
 
@@ -49,10 +57,6 @@ class TicketController extends Controller
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
         return $randomString;
-    }
-    public function show(Ticket $ticket)
-    {
-        //
     }
 
     /**
@@ -85,6 +89,7 @@ class TicketController extends Controller
      */
     public function destroy(Ticket $ticket)
     {
-        //
+        $ticket->delete();
+        return redirect()->route('admin.index')->with('success', 'Ticket deleted successfully.');
     }
 }

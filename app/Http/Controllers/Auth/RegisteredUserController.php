@@ -47,7 +47,7 @@ class RegisteredUserController extends Controller
 
             Auth::login($user);
 
-            return redirect(route('index', absolute: false));
+            return redirect(route('pago.index', absolute: false));
         }
         else{
             return redirect()->route('register')->with('error', 'No tienes permisos para registrarte');

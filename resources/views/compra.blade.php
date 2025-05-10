@@ -11,7 +11,7 @@
 <section id="compra" class="container container_compra">
     <div class="container_compra">
         <div class="cont_form">
-            <form action="" method="POST" class="form_compra">
+            <form action="" method="POST" class="form_compra" enctype="multipart/form-data">
                 @csrf
                 <input type="text" placeholder="cedula" id="cedula" name="cedula">
                 <input type="text" placeholder="nombre" id="nombre" name="nombre">

@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('cedula_cliente');
             $table->string('ticket_token')->unique();
             $table->string('ticket_descripcion')->default('pendiente');
-            $table->string('confirmacion_de_pago')->default('pendiente');
             $table->timestamps();
 
             $table->foreign('cedula_cliente')
