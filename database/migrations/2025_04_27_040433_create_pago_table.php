@@ -21,7 +21,7 @@ return new class extends Migration
             $table->date('fecha_pago');
             $table->string('metodo_de_pago');
             $table->string('estado_pago')->default('pendiente');
-            $table->string("dir_imagen_comprobante")->nullable();
+            $table->string("imagen_comprobante");
         
            $table->foreign('cedula_cliente')
                 ->references('cedula')
