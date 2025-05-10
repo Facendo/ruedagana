@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pago;
+use App\Models\Premio;
 use App\Models\Sorteo;
 use Illuminate\Http\Request;
 
@@ -13,8 +14,9 @@ class PagoController extends Controller
      */
     public function index()
     {
+        $premios= Premio::all();
         $pagos = Pago::all();
-        return view('admin.admin',compact('pagos'));
+        return view('admin.admin',compact('pagos','premios'));
     }
 
     /**

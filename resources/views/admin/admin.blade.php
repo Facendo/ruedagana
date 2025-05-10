@@ -89,6 +89,7 @@
                         <th>ID sorteo</th>
                         <th>Premio</th>
                         <th>Descripción</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
