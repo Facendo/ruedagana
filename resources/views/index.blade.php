@@ -33,60 +33,61 @@
         </div>
     
     </header><section id="finish">
-        <h2 class="section_subtitle">Sorteos finalizados</h2>
+        
+             {{-- <h2 class="section_subtitle">Sorteos finalizados</h2>
 
-        <div class="container">
+            <div class="container">
 
-            <div class="container_card">
+                <div class="container_card">
 
-                <div class="card">
-                    <figure>
-                        <img src="{{asset('img/moto.webp')}}" alt="img_premio" class="img_card">
-                    </figure>
-                    <div class="contenido">
-                        <h3 class="title_card">Premio</h3>
-                        <p class="text_card">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                             Fuga exercitationem voluptates aliquam mollitia. Assumenda,
-                              reiciendis.
-                        </p>
-                        <a href="#" class="comprar">Participar</a>
+                    <div class="card">
+                        <figure>
+                            <img src="{{asset('img/moto.webp')}}" alt="img_premio" class="img_card">
+                        </figure>
+                        <div class="contenido">
+                            <h3 class="title_card">Premio</h3>
+                            <p class="text_card">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Fuga exercitationem voluptates aliquam mollitia. Assumenda,
+                                reiciendis.
+                            </p>
+                            <a href="#" class="comprar">Participar</a>
+                        </div>
                     </div>
+
+
                 </div>
-
-
-            </div>
-            
-        </div>  
-
-    </section><section id="premios" class="container">
-
-        <h2 class="section_subtitle">Sorteo disponible</h2>
-
-        <div class="container">
-
-            <div class="container_card">
-
-                <div class="card">
-                    <figure>
-                        <img src="{{asset('img/moto.webp')}}" alt="img_premio" class="img_card">
-                    </figure>
-                    <div class="contenido">
-                        <h3 class="title_card">Premio</h3>
-                        <p class="text_card">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                             Fuga exercitationem voluptates aliquam mollitia. Assumenda,
-                              reiciendis.
-                        </p>
-                        <a href="pago.html" class="comprar">Participar</a>
-                    </div>
-                </div>
-
                 
+            </div>  
 
+        </section><section id="premios" class="container">  --}}
 
-            </div>
-            
-        </div>
-    </section>
+       <section>
+    <h2 class="section_subtitle">Sorteos disponibles</h2>
+    <div class="container">
+        @if(count($sorteos) > 0)
+            @foreach($sorteos as $sorteo)
+                <div class="container_card">
+                    <div class="card">
+                        <figure>
+                           @if($sorteo->sorteo_imagen)
+                                <img src="{{ asset('storage/' . $sorteo->sorteo_imagen) }}" width="330" height="300">
+                            @else
+                                <img src="{{ asset('img/default.webp') }}" alt="Imagen por defecto"width="330" height="300">
+                            @endif
+                        </figure>
+                        <div class="contenido">
+                            <h3 class="title_card">{{ $sorteo->nombre }}</h3>
+                            <p class="text_card">{{ $sorteo->descripcion }}</p>
+                            <a href="{{ route('compra', ['sorteo_id' => $sorteo->id]) }}" class="comprar">Participar</a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        @else
+            <p>No hay sorteos disponibles en este momento.</p>
+        @endif
+    </div>
+</section>
 <section id="cuentas">
         <h2 class="section_subtitle">Cuentas de pago</h2>
 

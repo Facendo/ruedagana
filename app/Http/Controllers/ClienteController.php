@@ -51,10 +51,12 @@ class ClienteController extends Controller
         $pago->fecha_pago = $request->fecha_de_pago;
         $pago->metodo_de_pago = $request->metodo_de_pago;
         $pago->estado_pago = "pendiente";
-        if ($request->hasFile('imagen_comprobante')) {
-            $direccion=Storage::put('comprobantes', $request->file('imagen_comprobante'));
+       if ($request->hasFile('imagen_comprobante')) {
+            $image = $request->file('imagen_comprobante');
+            $filename = $image->getClientOriginalName();
+            $path = $image->storeAs('comprobantes', $filename, 'public'); // Guarda con el nombre original
+            $pago->imagen_comprobante = 'sorteo/' . $filename; // Guarda la ruta con el nombre original
         }
-        $pago->imagen_comprobante = basename($direccion);
         $pago->descripcion = " Pago de " . $request->cantidad_de_tickets . " tickets". " En la fecha " . $request->fecha_de_pago;
         $pago->save();
         return redirect()->route('index')->with('success', 'Cliente registrado exitosamente.');
