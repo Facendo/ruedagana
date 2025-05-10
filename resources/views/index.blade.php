@@ -20,8 +20,10 @@
             <div class="container_info container">
                 
                 <div class="container_logo">
+
                     <img src="{{asset('img/')}}" alt="">
                     <img src="{{asset('img/logo_ruedaygana_sf.png')}}" class="img_logo" alt="imagenlogo">
+
                 </div>
                 
                 <div class="containertext_presentacion">
@@ -33,7 +35,7 @@
         </div>
     
     </header><section id="finish">
-        
+
              {{-- <h2 class="section_subtitle">Sorteos finalizados</h2>
 
             <div class="container">
@@ -52,7 +54,9 @@
                             </p>
                             <a href="#" class="comprar">Participar</a>
                         </div>
+
                     </div>
+
 
 
                 </div>
@@ -120,7 +124,9 @@
 
                 <div class="card_datos">
                     <div class="container_datos">
+
                         <img src="{{asset('img/zelle_logo.webp')}}" alt="imagenlogo" class="logo_zin">
+
                         <div class="datos_pago">
                             <h3>Zinli</h3>
                             <p class="data">Jesus Melean</p>

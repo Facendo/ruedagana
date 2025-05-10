@@ -34,7 +34,7 @@
                     <label for="imagen">Subir comprobante de pago</label>
                     <input type="file" id="imagen_comprobante" name="imagen_comprobante" accept="image/png, image/jpeg, image/jpg">
                 </div>
-                <button class="button" type="submit">enviar</button>
+                <button class="button button_compra buttom_form" type="submit">enviar</button>
             </form>
         </div>
     </div>

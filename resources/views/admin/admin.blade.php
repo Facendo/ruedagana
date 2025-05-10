@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{{asset('css/styles.css')}}">
 
     <title>Panel de Administrador</title>
@@ -60,11 +61,15 @@
                     <input type="text" name="sorteo_descripcion" id="sorteo_descripcion" placeholder="Descripcion del sorteo" class="input_reg_sorteo">
                     <input type="file" name="sorteo_imagen" id="sorteo_imagen" placeholder="Imagen del sorteo" class="input_reg_sorteo" accept="image/*">
                     <br>
+
                     <button type="submit" class="btn_reg_sorteo button">Registrar sorteo</button>
                 </form>
             </div>
         </div>
     </div>
+
+
+    <box-icon name='message-alt-x'></box-icon>
 
     
     <div class="container">
@@ -78,11 +83,15 @@
                     <input type="text" name="sorteo_descripcion" id="sorteo_descripcion" placeholder="Descripcion del sorteo" class="input_reg_sorteo">
                     <input type="file" name="sorteo_imagen" id="sorteo_imagen" placeholder="Imagen del sorteo" class="input_reg_sorteo">
                     <br>
+
                     <input type="submit" value="Editar Sorteo" class="btn_reg_sorteo button">
+
                 </form>
             </div>
         </div>
     </div>
+
+    
 
     <div id="section_ventas_admin" class="container">
         <div class="container_table">
@@ -97,22 +106,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($premios as $premio)
-                    <tr>
-                        <td>{{ $premio->id_premio }}</td>
-                        <td>{{ $premio->id_sorteo }}</td>
-                        <td>{{ $premio->premio_nombre }}</td>
-                        <td>{{ $premio->premio_descripcion }}</td>
-                        <td>
-                            <a href="#">Eliminar</a>
-                            <a href="#">Editar</a>
-                        </td>
-                    </tr>
-                    @endforeach
+                    <i class="ti ti-trash"></i>
                 </tbody>
             </table>
         </div>
     </div>
+
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script> 
+
+       
 
 <div class="container">
         <div class="reg_sorteo">

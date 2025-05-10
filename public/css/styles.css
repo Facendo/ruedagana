@@ -29,9 +29,10 @@ img.img_logo{
 .button{
     width: 100px;
     text-decoration: none;
+    background-color: rgb(254, 180, 3);
     outline: none;
     padding: 10px;
-    border: 2px solid blue;
+    border-radius: 20px;
     color: red;
 }
 
