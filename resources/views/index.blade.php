@@ -7,7 +7,12 @@
     <title>Rueda y Gana || Inicio</title>
 </head>
 
+
+<!------------------ TODO EL CONTENIDO DE LA APP  --------------------->
+
 <body>
+
+<!------------------------- ENCABEZADO -------------------------------->
     
     <header id="header">
         
@@ -29,43 +34,21 @@
                 <div class="containertext_presentacion">
                     <h1 class="text_presentacion">¡Rueda y gana con nostros!</h1>
                     <p class="text_center">Participa para ganar increibles premios cada semana, por tan solo 35bs</p>
-                    <a href="./compra.blade.php" class="button">Participar</a>
+                    <a href="{{route('compra')}}" class="button">Participar</a>
                 </div>
             </div>
         </div>
     
-    </header><section id="finish">
-
-             {{-- <h2 class="section_subtitle">Sorteos finalizados</h2>
-
-            <div class="container">
-
-                <div class="container_card">
-
-                    <div class="card">
-                        <figure>
-                            <img src="{{asset('img/moto.webp')}}" alt="img_premio" class="img_card">
-                        </figure>
-                        <div class="contenido">
-                            <h3 class="title_card">Premio</h3>
-                            <p class="text_card">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Fuga exercitationem voluptates aliquam mollitia. Assumenda,
-                                reiciendis.
-                            </p>
-                            <a href="#" class="comprar">Participar</a>
-                        </div>
-
-                    </div>
+    </header>
+        
 
 
 
-                </div>
-                
-            </div>  
+<!------------------------- SECCION DE PREMIOS ------------------------->
+        
+        
+    <section id="premios" class="container">  
 
-        </section><section id="premios" class="container">  --}}
-
-       <section>
     <h2 class="section_subtitle">Sorteos disponibles</h2>
     <div class="container">
         @if(count($sorteos) > 0)
@@ -92,6 +75,42 @@
         @endif
     </div>
 </section>
+
+
+
+<!------------------------- SECCION DE SORTEOS FINALIZADOS (COMENTADA) ------------------------->
+
+<!-- <section id="finish">
+
+       <h2 class="section_subtitle">Sorteos finalizados</h2>
+
+            <div class="container">
+
+                <div class="container_card">
+
+                    <div class="card">
+                        <figure>
+                            <img src="{{asset('img/moto.webp')}}" alt="img_premio" class="img_card">
+                        </figure>
+                        <div class="contenido">
+                            <h3 class="title_card">Premio</h3>
+                            <p class="text_card">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Fuga exercitationem voluptates aliquam mollitia. Assumenda,
+                                reiciendis.
+                            </p>
+                            <a href="#" class="comprar">Participar</a>
+                        </div>
+            </div>
+
+    </section>
+ -->
+
+
+
+
+<!----------------------- SECCION DE CUENTAS ----------------------------->
+
+
 <section id="cuentas">
         <h2 class="section_subtitle">Cuentas de pago</h2>
 
@@ -152,12 +171,8 @@
 
     </section>
 
-    <div>
-        <label for="Compra">
-            
-            <a href="{{route('compra')}}">Compras tus tickets aqui</a>
-        </label>
-    </div>
+
+<!----------------------- SECCION DE REDES SOCIALES ----------------------------->
     
     
 <footer id="foot">

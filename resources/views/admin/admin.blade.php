@@ -3,14 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{{asset('css/styles.css')}}">
 
     <title>Panel de Administrador</title>
 </head>
 <body>
 
-    <div id="section_ventas_admin" class="container">
+
+<style>
+
+.section_ventas{
+    width: 100%;
+    
+}
+
+div.container_table{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+table.table_gestion{
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th{
+    background-color: rgb(254, 180, 3);
+    color: black;
+    padding: 20px;
+}
+td{
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    color:white
+}
+
+tr:nth-child(even) td {
+  background-color: rgb(130,130,130);
+}
+
+tr:nth-child(odd) td {
+  background-color: rgb(80,80,80);
+}
+
+
+
+
+
+.container_reg{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+
+}
+
+.cont_reg{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(100, 100, 100);
+    border-radius: 10px;
+}
+
+.cont_form{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form.form{
+    width: 90%;
+}
+
+input.input_reg_sorteo{
+    width: 100%;
+    background-color: rgb(110,110,110);
+    border-bottom: 2px solid rgb(254, 180, 3);
+    border-right: 2px solid rgb(254, 180, 3);
+    margin-bottom: 20px;
+}
+
+
+
+</style>
+
+
+<!--------------- TABLA DE GESTION  ---------->
+
+
+
+    <div id="section_ventas_admin" class="container section_ventas">
+        <h2 class="section_subtitle">Boletos vendidos</h2>
         <div class="container_table">
             <table id="table_gestion" class="table_gestion">
                 <thead>
@@ -37,23 +126,35 @@
                         <td>{{ $pago->metodo_de_pago}}</td>
                         <td>{{ $pago->estado_pago }}</td>
                         <td>
-                            <a href="#">Eliminar</a>
-                            <a href="#">Editar</a>
+                            <a href="#"class="button">Eliminar</a>
+                            <a href="#" class="button">Editar</a>
                         </td>
                         <td><a href="ticket.store">Asignar ticket</a></td>
                     </tr>
                     @endforeach
+                    
+                    
                 </tbody>
             </table>
         </div>
     </div>
 
+    
+    
+    
     <br><br><br><br><br><br><br><br><br><br>
 
-    <div class="container">
-        <div class="reg_sorteo">
-            <div class="cont_reg_sorteo">
-                <form action="{{route('sorteo.store')}}" class="form_reg_sorteo" method="POST" enctype="multipart/form-data">
+
+
+
+
+    <!------------------ REGISTRAR SORTEO --------------------->
+
+    <h2 class="section_subtitle">REGISTRAR SORTEO</h2>
+    <div class="container_reg">
+        <div class="reg_sorteo cont_reg">
+            <div class="cont_form">
+                <form action="{{route('sorteo.store')}}" class="form_reg_sorteo form" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="text" name="sorteo_nombre" id="sorteo_nombre" placeholder="Nombre del sorteo" class="input_reg_sorteo">
                     <input type="date" name="sorteo_fecha_inicio" id="sorteo_fecha_inicio" placeholder="Fecha de inicio del sorteo" class="input_reg_sorteo">
@@ -69,31 +170,10 @@
     </div>
 
 
-    <box-icon name='message-alt-x'></box-icon>
-
-    
-    <div class="container">
-        <div class="reg_sorteo">
-            <div class="cont_reg_sorteo">
-                <form action="" class="form_reg_sorteo" id="">
-                    @csrf
-                    <input type="text" name="sorteo_nombre" id="sorteo_nombre" placeholder="Nombre del sorteo" class="input_reg_sorteo">
-                    <input type="date" name="sorteo_fecha_inicio" id="sorteo_fecha_inicio" placeholder="Fecha de inicio del sorteo" class="input_reg_sorteo">
-                    <input type="date" name="sorteo_fecha_fin" id="sorteo_fecha_fin" placeholder="Fecha de fin del sorteo" class="input_reg_sorteo">
-                    <input type="text" name="sorteo_descripcion" id="sorteo_descripcion" placeholder="Descripcion del sorteo" class="input_reg_sorteo">
-                    <input type="file" name="sorteo_imagen" id="sorteo_imagen" placeholder="Imagen del sorteo" class="input_reg_sorteo">
-                    <br>
-
-                    <input type="submit" value="Editar Sorteo" class="btn_reg_sorteo button">
-
-                </form>
-            </div>
-        </div>
-    </div>
-
-    
+    <!--------- TABLA DE SORTEOS  --------->
 
     <div id="section_ventas_admin" class="container">
+        <h2 class="section_subtitle">TABLA DE SORTEOS</h2>
         <div class="container_table">
             <table id="table_gestion" class="table_gestion">
                 <thead>
@@ -106,20 +186,23 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <i class="ti ti-trash"></i>
+                    
                 </tbody>
             </table>
         </div>
     </div>
 
-<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script> 
 
-       
+    <!------------------ EDITAR SORTEO ---------------------> 
 
-<div class="container">
-        <div class="reg_sorteo">
-            <div class="cont_reg_sorteo">
-                <form action="" class="form_reg_sorteo" method="POST" enctype="multipart/form-data">
+
+
+<h2 class="section_subtitle">EDITAR SORTEOS</h2>
+<div class="container_reg">
+    
+        <div class="reg_sorteo cont_reg">
+            <div class="cont_form">
+                <form action="" class="form_reg_sorteo form" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="id_sorteo" id="id_sorteo" value="" class="input_reg_sorteo">
                     <input type="text" name="premio_nombre" id="premio_nombre" placeholder="Nombre premio" class="input_reg_sorteo">
