@@ -50,15 +50,10 @@
                         <td>{{ $pago->metodo_de_pago}}</td>
                         <td>{{ $pago->estado_pago }}</td>
                         <td>
-                            <form action={{route('pago.destroy',$pago->id_pago)}} method="POST" class="inline-block">	
+                            <form action={{route('pago.destroy',$pago->referencia)}} method="POST" class="button">	
                                 @csrf
                                 @method('DELETE')
-                                <button class="text-red-500 hover:text-red-700">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                                    </svg>
-                                </button>
-                            </div>
+                                <button type="submit" class="button">Eliminar</button>
                             </form>
                         </td>
                         <td><a href="" class="button">Asignar ticket</a></td>
@@ -128,7 +123,7 @@
                         <td>{{ $sorteo->sorteo_fecha_fin }}</td>
                         <td>
                             <a href="#"class="button">Eliminar</a>
-                            <a href="#" class="button">Editar</a>
+                            
                         </td>
                     </tr>
                     @endforeach

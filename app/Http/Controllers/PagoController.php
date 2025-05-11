@@ -21,8 +21,8 @@ class PagoController extends Controller
     }
 
     
-    public function destroy(string $pago)
-    {   $pago = Pago::find($pago);
+    public function destroy(string $referencia)
+    {   $pago = Pago::find($referencia);
         $pago->delete();
         return redirect()->route('pago.index')->with('success', 'Pago eliminado exitosamente');
     }
