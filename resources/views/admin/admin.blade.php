@@ -44,7 +44,7 @@
                         <td>{{ $pago->metodo_de_pago}}</td>
                         <td>{{ $pago->estado_pago }}</td>
                         <td>
-                            <form action={{route('pago.destroy',$pago->referencia)}} method="POST" class="button">	
+                            <form action={{route('pago.destroy',$pago->id_pago)}} method="POST" class="button">	
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="button">Eliminar</button>

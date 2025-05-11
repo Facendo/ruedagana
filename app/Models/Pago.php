@@ -10,6 +10,7 @@ class Pago extends Model
 {
     use HasFactory;
     protected $table = 'pago';
+    protected $primaryKey = 'id_pago';
     public $timestamps = false;
 
     public function ticket(){
