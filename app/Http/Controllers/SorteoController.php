@@ -27,7 +27,7 @@ class SorteoController extends Controller
         $sorteo = new Sorteo();
         $sorteo->sorteo_nombre = $request->sorteo_nombre;
         $sorteo->sorteo_descripcion = $request->sorteo_descripcion;
-        
+        $sorteo->precio_boleto = $request->precio_boleto;
         if ($request->hasFile('sorteo_imagen')) {
             $image = $request->file('sorteo_imagen');
             $filename = $image->getClientOriginalName();
@@ -66,6 +66,8 @@ class SorteoController extends Controller
      */
     public function destroy(Sorteo $sorteo)
     {
-        //funcikon para eliminar un sorteo
+        //Funcion para eliminar un sorteo
+        $sorteo->delete();
+        return redirect()->route('pago.index');
     }
 }
