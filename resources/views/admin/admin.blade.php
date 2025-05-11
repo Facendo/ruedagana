@@ -10,12 +10,6 @@
 <body>
 
 
-<style>
-
-
-
-
-</style>
 
 
 <!--------------- TABLA DE GESTION  ---------->
@@ -84,21 +78,20 @@
 
     <h2 class="section_subtitle">REGISTRAR SORTEO</h2>
     <div class="container_reg">
-        <div class="reg_sorteo cont_reg">
             <div class="cont_form">
                 <form action="{{route('sorteo.store')}}" class="form_reg_sorteo form" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <input type="text" name="sorteo_nombre" id="sorteo_nombre" placeholder="Nombre del sorteo" class="input_reg_sorteo">
-                    <input type="date" name="sorteo_fecha_inicio" id="sorteo_fecha_inicio" placeholder="Fecha de inicio del sorteo" class="input_reg_sorteo">
-                    <input type="date" name="sorteo_fecha_fin" id="sorteo_fecha_fin" placeholder="Fecha de fin del sorteo" class="input_reg_sorteo">
-                    <input type="text" name="sorteo_descripcion" id="sorteo_descripcion" placeholder="Descripcion del sorteo" class="input_reg_sorteo">
-                    <input type="file" name="sorteo_imagen" id="sorteo_imagen" placeholder="Imagen del sorteo" class="input_reg_sorteo" accept="image/*">
+                    <input type="text" name="sorteo_nombre" id="sorteo_nombre" placeholder="Nombre del sorteo" class="input_form">
+                    <input type="date" name="sorteo_fecha_inicio" id="sorteo_fecha_inicio" placeholder="Fecha de inicio del sorteo" class="input_form">
+                    <input type="date" name="sorteo_fecha_fin" id="sorteo_fecha_fin" placeholder="Fecha de fin del sorteo" class="input_form">
+                    <input type="text" name="sorteo_descripcion" id="sorteo_descripcion" placeholder="Descripcion del sorteo" class="input_form">
+                    <input type="file" name="sorteo_imagen" id="sorteo_imagen" placeholder="Imagen del sorteo" class="input_reg" accept="image/*">
                     <br>
 
                     <button type="submit" class="btn_reg_sorteo button">Registrar sorteo</button>
                 </form>
             </div>
-        </div>
+        
     </div>
 
 
@@ -145,7 +138,6 @@
 <h2 class="section_subtitle">Asignar Premios</h2>
 <div class="container_reg">
     
-        <div class="reg_sorteo cont_reg">
             <div class="cont_form">
                 <form action="{{route('premio.store')}}" class="form_reg_sorteo form" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -163,14 +155,13 @@
                     </div>
                      
                     
-                    <input type="text" name="premio_nombre" id="premio_nombre" placeholder="Nombre premio" class="input_reg_sorteo">
-                    <input type="text" name="premio_descripcion" id="premio_descripcion" placeholder="Descripcion premio" class="input_reg_sorteo">
-                    <input type="file" name="premio_imagen" id="premio_imagen" placeholder="Imagen de premio" class="input_reg_sorteo">
+                    <input type="text" name="premio_nombre" id="premio_nombre" placeholder="Nombre premio" class="input_form">
+                    <input type="text" name="premio_descripcion" id="premio_descripcion" placeholder="Descripcion premio" class="input_form">
+                    <input type="file" name="premio_imagen" id="premio_imagen" placeholder="Imagen de premio" >
                     <br>
                     <button type="submit" class="btn_reg_sorteo button">Registrar Premio</button>
                 </form>
             </div>
-        </div>
     </div>
 <br><br><br><br>
         
