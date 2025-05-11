@@ -204,8 +204,27 @@ footer#foot{
 
 
 /* ---------- COMPRAS ----------- */
-
-
+.contador { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    margin-top: 20px; 
+}
+.contador button { 
+    font-size: 1.5em; 
+    padding: 10px 20px; 
+    margin: 0 10px; 
+    background: gold; 
+    border: none; 
+    border-radius: 10px; 
+    color: black; 
+    font-weight: bold;
+    cursor: pointer; 
+}
+.cantidad { 
+    font-size: 2em; 
+    color: yellow; 
+}
 
 
 /* --------------- CAMBIOS INDEX------------------------ */

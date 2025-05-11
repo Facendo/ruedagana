@@ -16,8 +16,12 @@
 
 
     <a href="{{route('logout')}}"class="button">Cerrar sesion</a>
+    <h1 class="section_title">Panel de Administrador</h1>
+
+    {{-- Filtrador para la tabla de pagos de boletos --}}
+
     <div id="section_ventas_admin" class="container section_ventas">
-        <h2 class="section_subtitle">Boletos vendidos</h2>
+        <h2 class="section_subtitle">Tabla de pagos de boletos</h2>
         <div class="container_table">
             <table id="table_gestion" class="table_gestion">
                 <thead>
@@ -35,6 +39,7 @@
                 </thead>
                 <tbody>
                     @foreach($pagos as $pago)
+                    {{ $filtro? $pago->where('estado_pago', $filtro) : $pago }}
                     <tr>
                         <td>{{ $pago->cedula_cliente }}</td>
                         <td>{{ $pago->referencia }}</td>
@@ -59,6 +64,7 @@
             </table>
         </div>
     </div>
+    
 
     
     
@@ -80,7 +86,9 @@
                     <input type="date" name="sorteo_fecha_inicio" id="sorteo_fecha_inicio" placeholder="Fecha de inicio del sorteo" class="input_form">
                     <input type="date" name="sorteo_fecha_fin" id="sorteo_fecha_fin" placeholder="Fecha de fin del sorteo" class="input_form">
                     <input type="text" name="sorteo_descripcion" id="sorteo_descripcion" placeholder="Descripcion del sorteo" class="input_form">
+                    <input type="text" name="precio_boleto" id="precio_boleto" placeholder="Precio del boleto" class="input_form">
                     <input type="file" name="sorteo_imagen" id="sorteo_imagen" placeholder="Imagen del sorteo" class="input_reg" accept="image/*">
+                    
                     <br>
 
                     <button type="submit" class="btn_reg_sorteo button">Registrar sorteo</button>
@@ -115,8 +123,11 @@
                         <td>{{ $sorteo->sorteo_fecha_inicio }}</td>
                         <td>{{ $sorteo->sorteo_fecha_fin }}</td>
                         <td>
-                            <a href="#"class="button">Eliminar</a>
-                            
+                            <form action={{route('sorteo.destroy',$sorteo)}} method="POST" class="button">	
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="button">Eliminar</button>
+                            </form>
                         </td>
                     </tr>
                     @endforeach
