@@ -11,3 +11,5 @@ require __DIR__.'/auth.php';
 require __DIR__.'/cliente.php';
 require __DIR__.'/admin.php';
 require __DIR__.'/sorteo.php';
+require __DIR__.'/premio.php';
+

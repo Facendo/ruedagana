@@ -21,7 +21,7 @@
 <!--------------- TABLA DE GESTION  ---------->
 
 
-
+    <a href="{{route('logout')}}"class="button">Cerrar sesion</a>
     <div id="section_ventas_admin" class="container section_ventas">
         <h2 class="section_subtitle">Boletos vendidos</h2>
         <div class="container_table">
@@ -50,10 +50,18 @@
                         <td>{{ $pago->metodo_de_pago}}</td>
                         <td>{{ $pago->estado_pago }}</td>
                         <td>
-                            <a href="#"class="button">Eliminar</a>
-                            <a href="#" class="button">Editar</a>
+                            <form action={{route('pago.destroy',$pago->id_pago)}} method="POST" class="inline-block">	
+                                @csrf
+                                @method('DELETE')
+                                <button class="text-red-500 hover:text-red-700">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                            </div>
+                            </form>
                         </td>
-                        <td><a href="ticket.store">Asignar ticket</a></td>
+                        <td><a href="" class="button">Asignar ticket</a></td>
                     </tr>
                     @endforeach
                     
@@ -102,43 +110,69 @@
             <table id="table_gestion" class="table_gestion">
                 <thead>
                     <tr>
-                        <th>ID premio</th>
                         <th>ID sorteo</th>
-                        <th>Premio</th>
+                        <th>Nombre del sorteo</th>
                         <th>Descripción</th>
+                        <th>Fecha de inicio</th>
+                        <th>Fecha de fin</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    
+                    @foreach($sorteos as $sorteo)
+                    <tr>
+                        <td>{{ $sorteo->id_sorteo }}</td>
+                        <td>{{ $sorteo->sorteo_nombre }}</td>
+                        <td>{{ $sorteo->sorteo_descripcion }}</td>
+                        <td>{{ $sorteo->sorteo_fecha_inicio }}</td>
+                        <td>{{ $sorteo->sorteo_fecha_fin }}</td>
+                        <td>
+                            <a href="#"class="button">Eliminar</a>
+                            <a href="#" class="button">Editar</a>
+                        </td>
+                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
     </div>
 
 
-    <!------------------ EDITAR SORTEO ---------------------> 
+    <!------------------ Asignacion de Premios ---------------------> 
 
 
 
-<h2 class="section_subtitle">EDITAR SORTEOS</h2>
+<h2 class="section_subtitle">Asignar Premios</h2>
 <div class="container_reg">
     
         <div class="reg_sorteo cont_reg">
             <div class="cont_form">
-                <form action="" class="form_reg_sorteo form" method="POST" enctype="multipart/form-data">
+                <form action="{{route('premio.store')}}" class="form_reg_sorteo form" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <input type="hidden" name="id_sorteo" id="id_sorteo" value="" class="input_reg_sorteo">
+                   
+                        
+                     
+                    <div>
+                    <label for="opcion">Sorteos</label>
+                    <select id="Sorteo" name="id_sorteo">
+                        @foreach ($sorteos as $sorteo)
+                        <option value="{{$sorteo->id_sorteo}}">{{$sorteo->sorteo_nombre}}</option>
+                        @endforeach    
+                    </select>
+                   
+                    </div>
+                     
+                    
                     <input type="text" name="premio_nombre" id="premio_nombre" placeholder="Nombre premio" class="input_reg_sorteo">
                     <input type="text" name="premio_descripcion" id="premio_descripcion" placeholder="Descripcion premio" class="input_reg_sorteo">
                     <input type="file" name="premio_imagen" id="premio_imagen" placeholder="Imagen de premio" class="input_reg_sorteo">
                     <br>
-                    <input type="submit" value="Registrar sorteo" class="btn_reg_sorteo button">
+                    <button type="submit" class="btn_reg_sorteo button">Registrar Premio</button>
                 </form>
             </div>
         </div>
     </div>
-<a href="{{route('logout')}}">Cerrar sesion</a>
+<br><br><br><br>
         
 </body>
 </html>

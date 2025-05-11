@@ -32,11 +32,16 @@ class PremioController extends Controller
         $premio->id_sorteo = $request->id_sorteo;
         $premio->premio_nombre = $request->premio_nombre;
         $premio->premio_descripcion = $request->premio_descripcion;
-        $premio->premio_imagen = $request->premio_imagen;
+        if ($request->hasFile('premio_imagen')) {
+            $image = $request->file('premio_imagen');
+            $filename = $image->getClientOriginalName();
+            $path = $image->storeAs('premios', $filename, 'public'); // Guarda con el nombre original
+            $premio->premio_imagen = 'premios/' . $filename; // Guarda la ruta con el nombre original
+        }
         $premio->created_at = now();
         $premio->updated_at = now();
         $premio->save();
-        //return redirect()->route('premio.index')->with('success', 'Premio created successfully.');
+        return redirect()->route('pago.index')->with('success', 'Premio creado exitosamente');
     }
 
    
