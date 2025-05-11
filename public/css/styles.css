@@ -4,6 +4,10 @@
     margin: 0;  
 }
 
+/* ------ API FONT ------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
 body{
     color: #fff;
     font-family: arial;
@@ -24,16 +28,19 @@ img.img_logo{
     text-align: center;
     margin: 50px;
     color: rgb(10, 180, 171);
+    
 }
 
 .button{
-    width: 100px;
+    width: 120px;
+    font-family: "Roboto Mono", monospace;
+    font-weight: 40px;
     text-decoration: none;
-    background-color: rgb(254, 180, 3);
     outline: none;
-    padding: 10px;
-    border-radius: 20px;
-    color: red;
+    padding: 12px;
+    margin: 0 auto;
+    color: black;
+
 }
 
 
@@ -47,6 +54,19 @@ RGB(50,50,61) SELECTOR
 RGB(10, 180, 171) BLUE COLOR
 
 */
+
+
+
+/* ------- FUENTES --------- */
+
+
+
+/* ------------------------- */
+
+.text_presentacion{
+    font-family: "Luckiest Guy", sans-serif;
+
+}
 
 nav.menu{
     width: 100%;
@@ -173,8 +193,7 @@ footer#foot{
 
 .cont_foot{
     width: 20%;
-    height: 100%;
-    background-color: black;
+    height: 100%;   
     display: flex;
     justify-content: center;
     align-items: center;
@@ -199,7 +218,6 @@ footer#foot{
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid green;
 }
 
 form.form_compra{
@@ -218,6 +236,140 @@ input{
     padding: 10px;
     margin: 30px;
 }
+
+/* --------------- CAMBIOS INDEX------------------------ */
+
+.titulo{
+     font-family: "Alfa Slab One", serif;
+}
+
+.text_presentacion{
+     font-family: "Alfa Slab One", serif;
+}
+
+.text_center{
+    font-family: "Roboto Mono", monospace;
+}
+
+p{
+    font-family: "Roboto Mono", monospace;
+}
+
+h2.section_subtitle{
+    font-family: "Cal Sans", sans-serif;
+}
+
+h3.title_card, h3{
+    font-family: "Cal Sans", sans-serif;
+}
+
+.button{
+    width: 120px;
+    font-family: "Roboto Mono", monospace;
+    font-weight: 40px;
+    text-decoration: none;
+    outline: none;
+    padding: 12px;
+    margin: 20px auto 0 auto;
+    color: black;
+
+}
+
+.button_ini{
+    width: 200px;
+    text-align: center;
+}
+
+.contenido{
+    text-align: center;
+}
+
+h2.slogan_footer{
+    font-family: "Alfa Slab One", serif;
+    color: black;
+}
+
+
+/* ------------ CAMBIOS ADMIN---------------------- */
+
+
+.section_ventas{
+    width: 100%;
+    
+}
+
+div.container_table{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+table.table_gestion{
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th{
+    background-color: rgb(254, 180, 3);
+    color: black;
+    padding: 20px;
+}
+td{
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    color:white
+}
+
+tr:nth-child(even) td {
+  background-color: rgb(130,130,130);
+}
+
+tr:nth-child(odd) td {
+  background-color: rgb(80,80,80);
+}
+
+
+
+
+
+.container_reg{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+
+}
+
+.cont_reg{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(100, 100, 100);
+    border-radius: 10px;
+}
+
+.cont_form{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form.form{
+    width: 90%;
+}
+
+input.input_reg_sorteo{
+    width: 100%;
+    background-color: rgb(110,110,110);
+    border-bottom: 2px solid rgb(254, 180, 3);
+    border-right: 2px solid rgb(254, 180, 3);
+    margin-bottom: 20px;
+}
+
 
 
 
