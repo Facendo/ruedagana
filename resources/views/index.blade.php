@@ -68,8 +68,8 @@
                             @endif
                         </figure>
                         <div class="contenido">
-                            <h3 class="title_card">titulo</h3>
-                            <p class="text_card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam obcaecati cupiditate ullam veniam, accusamus ipsum!</p>
+                            <h3 class="title_card">{{$sorteo->sorteo_nombre}}</h3>
+                            <p class="text_card">{{$sorteo->sorteo_descripcion}}</p>
                             <a href="{{ route('compra', ['sorteo_id' => $sorteo->id]) }}" class="button">Participar</a>
                         </div>
                     </div>
