@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cliente;
 use App\Models\Ticket;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -26,15 +27,16 @@ class TicketController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request, $id_sorteo,$cedula)
+    {   
+        $cliente=Cliente::find($cedula);
         $admin = User::all();
         $ticket = new Ticket();
-        $ticket->id_sorteo = $request->id_sorteo;
+        $ticket->id_sorteo = $id_sorteo;
         $ticket->ticket_token = $this->buildtoken();
-        $ticket->nombre_cliente = $request->nombre_cliente;
-        $ticket->telefono_cliente = $request->telefono_cliente;
-        $ticket->correo_cliente = $request->correo_cliente;
+        $ticket->nombre_cliente = $cliente->nombre_cliente;
+        $ticket->telefono_cliente = $cliente->telefono_cliente;
+        $ticket->correo_cliente = $cliente->correo_cliente;
         $ticket->descripcion = $request->descripcion;
         $ticket->confirmacion_de_pago = $request->confirmacion_de_pago;
         $ticket->created_at = now();

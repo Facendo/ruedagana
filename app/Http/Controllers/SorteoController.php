@@ -19,12 +19,6 @@ class SorteoController extends Controller
     }
 
     
-    public function create()
-    {
-        //retorna la vista para crear un nuevo sorteo
-        return view('sorteo.create');
-        
-    }
 
     
     public function store(Request $request)
@@ -47,16 +41,11 @@ class SorteoController extends Controller
         $sorteo->created_at = now();
         $sorteo->updated_at = now();
         $sorteo->save();
-        return redirect()->route('pago.index')->with('success', 'Sorteo creado exitosamente');
+        return redirect()->route('sorteo.index');
     }
 
 
    
-    public function edit(Sorteo $sorteo)
-    {
-        //retorna la vista para editar un sorteo
-        return view('sorteo.edit', compact('sorteo'));
-    }
 
     /**
      * Update the specified resource in storage.

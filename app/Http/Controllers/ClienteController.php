@@ -59,7 +59,7 @@ class ClienteController extends Controller
         }
         $pago->descripcion = " Pago de " . $request->cantidad_de_tickets . " tickets". " En la fecha " . $request->fecha_de_pago;
         $pago->save();
-        return redirect()->route('index')->with('success', 'Cliente registrado exitosamente.');
+        return redirect()->route('sorteo.index');
     }
 
    
