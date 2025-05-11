@@ -378,6 +378,43 @@ tr:nth-child(odd) td {
   background-color: rgb(80,80,80);
 }
 
+.message{
+    width: 60%;
+    border: 1.5px solid rgb(10, 200, 10);
+    background-color: rgb(50, 210, 50, 0.7);
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px;
+    border-radius: 10px;
+    color: #000;
+}
+
+
+
+
+/* ----------------- SECCION DE TICKETS ------------------ */
+
+
+.section_tickets{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.container_tickets{
+    width: 60%;
+
+}
+
+.cont_tickets_selector{
+    width: 40%;
+}
+
+form.form_tickets{
+    width: 90%;
+    margin: 0 auto;
+}
+
 
 
 
