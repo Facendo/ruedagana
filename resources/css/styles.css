@@ -32,7 +32,9 @@ img.img_logo{
 }
 
 .button{
+    
     width: 120px;
+    background-color: rgb(254, 180, 3);
     font-family: "Roboto Mono", monospace;
     font-weight: 40px;
     text-decoration: none;
