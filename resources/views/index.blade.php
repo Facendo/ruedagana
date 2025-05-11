@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('css/styles.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Cal+Sans&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rubik+Mono+One&display=swap" rel="stylesheet">
     <title>Rueda y Gana || Inicio</title>
 </head>
+
+
+
 
 
 <!------------------ TODO EL CONTENIDO DE LA APP  --------------------->
@@ -26,15 +32,14 @@
                 
                 <div class="container_logo">
 
-                    <img src="{{asset('img/')}}" alt="">
                     <img src="{{asset('img/logo_ruedaygana_sf.png')}}" class="img_logo" alt="imagenlogo">
 
                 </div>
                 
                 <div class="containertext_presentacion">
-                    <h1 class="text_presentacion">¡Rueda y gana con nostros!</h1>
+                    <h1 class="text_presentacion">¡RUEDA Y GANA CON NOSOTROS!</h1>
                     <p class="text_center">Participa para ganar increibles premios cada semana, por tan solo 35bs</p>
-                    <a href="{{route('compra')}}" class="button">Participar</a>
+                    <a href="{{route('compra')}}" class="button button_ini">Participar</a>
                 </div>
             </div>
         </div>
@@ -48,6 +53,35 @@
         
         
     <section id="premios" class="container">  
+
+    <h2 class="section_subtitle">SORTEOS DISPONIBLES</h2>
+    <div class="container">
+        @if(count($sorteos) > 0)
+            @foreach($sorteos as $sorteo)
+                <div class="container_card">
+                    <div class="card">
+                        <figure>
+                           @if($sorteo->sorteo_imagen)
+                                <img src="{{ asset('storage/' . $sorteo->sorteo_imagen) }}" class="img_card" alt="imagen_premio">   
+                            @else
+                                <img src="{{ asset('img/default.webp') }}" alt="Imagen por defecto">
+                            @endif
+                        </figure>
+                        <div class="contenido">
+                            <h3 class="title_card">titulo</h3>
+                            <p class="text_card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam obcaecati cupiditate ullam veniam, accusamus ipsum!</p>
+                            <a href="{{ route('compra', ['sorteo_id' => $sorteo->id]) }}" class="button">Participar</a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        @else
+            <p>No hay sorteos disponibles en este momento.</p>
+        @endif
+    </div>
+</section>
+
+<!-- <section id="premios" class="container">  
 
     <h2 class="section_subtitle">Sorteos disponibles</h2>
     <div class="container">
@@ -74,7 +108,7 @@
             <p>No hay sorteos disponibles en este momento.</p>
         @endif
     </div>
-</section>
+</section> -->
 
 
 
@@ -112,7 +146,7 @@
 
 
 <section id="cuentas">
-        <h2 class="section_subtitle">Cuentas de pago</h2>
+        <h2 class="section_subtitle">CUENTAS</h2>
 
         <div class="container">
             <div class="container_card">
@@ -180,10 +214,17 @@
     <div class="container">
         <div class="contenido_foot">
             
-            <div class="cont_foot">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quaerat.</div>
-            <div class="cont_foot">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quaerat.</div>
-            <div class="cont_foot">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quaerat.</div>
-            <div class="cont_foot">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quaerat.</div>
+            <div class="cont_foot">
+                <img src="{{asset('img/logo_ruedaygana_sf.png')}}" class="img_logo" alt="imagenlogo">
+            </div>
+
+            <div class="cont_foot">
+                <h2 class="slogan_footer">GRACIAS POR VISITAR</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quaerat.</p>
+            </div>
+            
+            <div class="cont_foot"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quaerat.</p></div>
+            <div class="cont_foot"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quaerat.</p></div>
 
         </div>
     </div>
