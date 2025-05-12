@@ -18,13 +18,17 @@
 
             <div class="container_tickets">
                 <h2 class="section_subtitle">Selecciona el ticket</h2>
-                <form action="#" method="post" class="form_tickets">
+                <form action="" method="post" class="form_tickets">
                     <div class="numeros_tickets">
-
-                        @for ($i = 0; $i < 1000; $i++)
-                            <input type="submit" name="name" value="{{$i}}" class="button">
+                        @csrf
+                            @php
+                                $numeros_disponibles = json_decode($sorteo->numeros_disponibles);
+                            @endphp
+                        @foreach ($numeros_disponibles as $numero )
+                            
+                            <input type="submit" name="name" value="{{$numero}}" class="button">
                         
-                        @endfor
+                        @endforeach
 
                     </div>
                 </form>
@@ -62,7 +66,12 @@
             <div class="cont_form">
                 <form action="{{route('ticket.desbloquear',$sorteo)}}" class="form" method="post">
                     <select name="desbloquear" id="desbloq" class="input_form">
-                        <option value="0">0</option>
+                        @php
+                                $numeros_ganadores = json_decode($sorteo->numeros_ganadores);
+                            @endphp
+                        @foreach($numeros_ganadores as $numero)
+                            <option value="{{$numero}}">{{$numero}}</option>
+                        @endforeach
                     </select>
                     <button type="submit" class="button">Desbloquear</button>
                 </form>

@@ -12,18 +12,21 @@ use Illuminate\Http\UploadedFile as HttpUploadedFile;
 
 class ClienteController extends Controller
 {
-   
+    public function index(int $id_sorteo)
+    {
+        $sorteo= Sorteo::find($id_sorteo);
+        return view('compra', compact('sorteo'));
+    }
     
     public function store(Request $request)
     {   
-        $sorteo= Sorteo::all()->last();
-        $idsorteo=$sorteo->id_sorteo;
+       
         if(Cliente::where('cedula', $request->cedula)->exists()){
             $clienteregistrado = Cliente::where('cedula', $request->cedula)->first();
             $clienteregistrado->cantidad_comprados+=$request->cantidad_de_tickets;
             $clienteregistrado->fecha_de_pago = $request->fecha_de_pago;
             $clienteregistrado->save();
-            $clienteregistrado->id_sorteo = $idsorteo;
+            $clienteregistrado->id_sorteo = $request->id_sorteo;
             
         }
         else{
@@ -37,14 +40,14 @@ class ClienteController extends Controller
         $cliente->cantidad_comprados = 0;
         $cliente->cantidad_comprados+= $request->cantidad_de_tickets;
         $cliente->fecha_de_pago = $request->fecha_de_pago; 
-        $cliente->id_sorteo = $idsorteo;
+        $cliente->id_sorteo = $request->id_sorteo;
         $cliente->save();
         
         }
         $pago = new Pago();
         $pago->cedula_cliente = $request->cedula;
         $pago->referencia = $request->referencia;
-        
+        $pago->id_sorteo = $request->id_sorteo;
         $pago->monto = $request->monto;
         $pago->cantidad_de_tickets = $request->cantidad_de_tickets;
         $pago->descripcion = $request->descripcion;

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('pago', function (Blueprint $table) {
             $table->integer('id_pago')->autoIncrement()->primary();
+            $table->integer('id_sorteo');
             $table->string('cedula_cliente');
             $table->string('referencia')->unique();
             $table->double('monto');
@@ -28,6 +29,13 @@ return new class extends Migration
                 ->on('cliente')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+                
+            $table->foreign('id_sorteo')
+                ->references('id_sorteo')
+                ->on('sorteo')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+           
         });
     }
 

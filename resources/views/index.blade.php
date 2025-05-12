@@ -39,7 +39,7 @@
                 <div class="containertext_presentacion">
                     <h1 class="text_presentacion">¡RUEDA Y GANA CON NOSOTROS!</h1>
                     <p class="text_center">Participa para ganar increibles premios cada semana, por tan solo 35bs</p>
-                    <a href="{{route('compra')}}" class="button button_ini">Participar</a>
+                    <a href="" class="button button_ini">Participar</a>
                 </div>
             </div>
         </div>
@@ -70,7 +70,7 @@
                         <div class="contenido">
                             <h3 class="title_card">{{$sorteo->sorteo_nombre}}</h3>
                             <p class="text_card">{{$sorteo->sorteo_descripcion}}</p>
-                            <a href="{{ route('compra', ['sorteo_id' => $sorteo->id]) }}" class="button">Participar</a>
+                            <a href="{{ route('compra', $sorteo->id_sorteo) }}" class="button">Participar</a>
                         </div>
                     </div>
                 </div>
