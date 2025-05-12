@@ -16,21 +16,39 @@
 <h2 class="section_subtitle">REGISTRAR COMPRA</h2>
 <section id="compra" class="container container_compra">
         <div class="cont_form">
+<<<<<<< HEAD
             <form action="{{route("cliente.store")}}" method="POST" class="form" enctype="multipart/form-data" class="form">
                 <h2>ingrese sus datos</h2>
                 @csrf
                 <input type="hidden" id="id_sorteo" name="id_sorteo" value="{{$sorteo->id_sorteo}}">
+=======
+            <form action="" method="POST" class="form" enctype="multipart/form-data" class="form">
+                <h3>Ingrese sus datos</h3>
+                @csrf
+                <label for="cedula">Cedula:</label>
+>>>>>>> fa3dda898fc7bba690376f755d89836aff5cd3f1
                 <input type="text" placeholder="cedula" id="cedula" name="cedula" class="input_form">
+                <label for="nombre">Nombre:</label>
                 <input type="text" placeholder="nombre" id="nombre" name="nombre"class="input_form">
+                <label for="apellido">Apellido:</label>
                 <input type="text" placeholder="apellido" id="apellido" name="apellido" class="input_form"> 
-                <input type="text" placeholder="telefono" id="telefono" name="telefono"      class="input_form">
+                <label for="telefono">Telefono:</label>
+                <input type="text" placeholder="telefono" id="telefono" name="telefono" class="input_form">
+                <label for="correo">Correo:</label>
                 <input type="text" placeholder="correo" id="correo" name="correo" class="input_form">
+                <label for="cantidad_de_tickets">Cantidad de tickets:</label>
                 <input type="number" placeholder="cantidad de tickets" id="cantidad_de_tickets" name="cantidad_de_tickets" class="input_form">
+                <div class="sumador_de_montos">
+                    <h3>25</h3>
+                </div>
+                <label for="referencia">Referencia de pago:</label>
                 <input type="number" placeholder="referencia de pago" id="referencia" name="referencia" class="input_form">
+                <label for="monto">Monto:</label>
                 <input type="number" placeholder="monto" id="monto" name="monto" class="input_form">
+                <label for="fecha_de_pago">Fecha de pago:</label>
                 <input type="date" placeholder="fecha de pago" id="fecha_de_pago" name="fecha_de_pago" class="input_form">
                 <div>
-                    <label for="opcion">Metodo de pago</label>
+                    <label for="metodo_de_pago">Metodo de pago</label>
                     <select id="metodo_de_pago" name="metodo_de_pago">
                         <option value="Pago movil Banesco">Pago Movil Banesco</option>
                         <option value="Pago movil Banplus">Pago Movil Banplus</option>
@@ -42,7 +60,7 @@
                     <label for="imagen">Subir comprobante de pago</label>
                     <input type="file" id="imagen_comprobante" name="imagen_comprobante" accept="image/png, image/jpeg, image/jpg">
                 </div>
-                <button class="button button_compra buttom_form" type="submit">enviar</button>
+                <button class="button" type="submit">Enviar</button>
             </form>
         </div>
 </section>
