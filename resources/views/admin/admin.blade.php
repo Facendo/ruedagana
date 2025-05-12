@@ -82,11 +82,17 @@
             <div class="cont_form">
                 <form action="{{route('sorteo.store')}}" class="form_reg_sorteo form" method="POST" enctype="multipart/form-data">
                     @csrf
+                    <label for="sorteo_nombre">Nombre:</label>
                     <input type="text" name="sorteo_nombre" id="sorteo_nombre" placeholder="Nombre del sorteo" class="input_form">
+                    <label for="sorteo_fecha_inicio">Fecha de inicio:</label>
                     <input type="date" name="sorteo_fecha_inicio" id="sorteo_fecha_inicio" placeholder="Fecha de inicio del sorteo" class="input_form">
+                    <label for="sorteo_fecha_fin">Fecha de fin:</label>
                     <input type="date" name="sorteo_fecha_fin" id="sorteo_fecha_fin" placeholder="Fecha de fin del sorteo" class="input_form">
+                    <label for="sorteo_descripcion">Descripcion:</label>
                     <input type="text" name="sorteo_descripcion" id="sorteo_descripcion" placeholder="Descripcion del sorteo" class="input_form">
+                    <label for="precio_boleto">Precio boleto:</label>
                     <input type="text" name="precio_boleto" id="precio_boleto" placeholder="Precio del boleto" class="input_form">
+                    <label for="sorteo_imagen">Imagen:</label>
                     <input type="file" name="sorteo_imagen" id="sorteo_imagen" placeholder="Imagen del sorteo" class="input_reg" accept="image/*">
                     
                     <br>
@@ -160,9 +166,11 @@
                    
                     </div>
                      
-                    
+                    <label for="premio_nombre">Nombre del premio:</label>
                     <input type="text" name="premio_nombre" id="premio_nombre" placeholder="Nombre premio" class="input_form">
+                    <label for="premio_descripcion">Descripcion del premio:</label>
                     <input type="text" name="premio_descripcion" id="premio_descripcion" placeholder="Descripcion premio" class="input_form">
+                    <label for="premio_imagen">Imagen del premio:</label>
                     <input type="file" name="premio_imagen" id="premio_imagen" placeholder="Imagen de premio" >
                     <br>
                     <button type="submit" class="btn_reg_sorteo button">Registrar Premio</button>
