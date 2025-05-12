@@ -67,12 +67,12 @@
             <div class="cont_form">
                 <form action="{{route('ticket.desbloquear',$sorteo)}}" class="form" method="post">
                     <h3 class="sub_inp">Desbloquear tickets</h3>
-                    <select name="desbloquear" id="desbloq" class="input_form">
+                    <select name="desbloquear" id="desbloq" class="input_select">
                         @php
                                 $numeros_ganadores = json_decode($sorteo->numeros_ganadores);
                             @endphp
                         @foreach($numeros_ganadores as $numero)
-                            <option value="{{$numero}}">{{$numero}}</option>
+                            <option value="{{$numero}}" class="input_option">{{$numero}}</option>
                         @endforeach
                     </select>
                     <button type="submit" class="button">Desbloquear</button>
