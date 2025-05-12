@@ -17,7 +17,7 @@
 <section id="compra" class="container container_compra">
         <div class="cont_form">
             <form action="" method="POST" class="form" enctype="multipart/form-data" class="form">
-                <h2>ingrese sus datos</h2>
+                <h3>Ingrese sus datos</h3>
                 @csrf
                 <label for="cedula">Cedula:</label>
                 <input type="text" placeholder="cedula" id="cedula" name="cedula" class="input_form">
@@ -31,6 +31,9 @@
                 <input type="text" placeholder="correo" id="correo" name="correo" class="input_form">
                 <label for="cantidad_de_tickets">Cantidad de tickets:</label>
                 <input type="number" placeholder="cantidad de tickets" id="cantidad_de_tickets" name="cantidad_de_tickets" class="input_form">
+                <div class="sumador_de_montos">
+                    <h3>25</h3>
+                </div>
                 <label for="referencia">Referencia de pago:</label>
                 <input type="number" placeholder="referencia de pago" id="referencia" name="referencia" class="input_form">
                 <label for="monto">Monto:</label>

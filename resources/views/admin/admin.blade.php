@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('css/styles.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Cal+Sans&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rubik+Mono+One&display=swap" rel="stylesheet">
 
     <title>Panel de Administrador</title>
 </head>
@@ -81,6 +84,7 @@
     <div class="container_reg">
             <div class="cont_form">
                 <form action="{{route('sorteo.store')}}" class="form_reg_sorteo form" method="POST" enctype="multipart/form-data">
+                    <h3 class="sub_inp">Registra sorteo</h3>
                     @csrf
                     <label for="sorteo_nombre">Nombre:</label>
                     <input type="text" name="sorteo_nombre" id="sorteo_nombre" placeholder="Nombre del sorteo" class="input_form">
@@ -91,9 +95,10 @@
                     <label for="sorteo_descripcion">Descripcion:</label>
                     <input type="text" name="sorteo_descripcion" id="sorteo_descripcion" placeholder="Descripcion del sorteo" class="input_form">
 
-                    <label for="precio_boleto">Precio boleto:</label>
-                    <input type="text" name="precio_boleto_bs" id="precio_boleto_bs" placeholder="Precio del boleto" class="input_form">
-                    <input type="text" name="precio_boleto_dolar" id="precio_boleto_dolar" placeholder="Precio del boleto" class="input_form">
+                    <label for="precio_boleto_bs">Precio boleto (bs):</label>
+                    <input type="text" name="precio_boleto_bs" id="precio_boleto_bs" placeholder="Precio del boleto en bolivares" class="input_form">
+                    <label for="precio_boleto_dolar">Precio boleto (dolar):</label>
+                    <input type="text" name="precio_boleto_dolar" id="precio_boleto_dolar" placeholder="Precio del boleto en dolares" class="input_form">
                     <label for="sorteo_imagen">Imagen:</label>
                     <input type="file" name="sorteo_imagen" id="sorteo_imagen" placeholder="Imagen del sorteo" class="input_reg" accept="image/*">
                     
@@ -154,6 +159,7 @@
     
             <div class="cont_form">
                 <form action="{{route('premio.store')}}" class="form_reg_sorteo form" method="POST" enctype="multipart/form-data">
+                    <h3 class="sub_inp">Asigna premios</h3>
                     @csrf
                    
                         

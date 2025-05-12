@@ -39,9 +39,10 @@
 
             <h2 class="section_subtile">GESTIONA TICKETS</h2>
 
-            <h3>Bloquear Numero</h3>
+            <h3 class="sub_inp">Bloquear Numero</h3>
             <div class="cont_form">
                 <form action="{{route('ticket.bloquear',$sorteo)}}" class="form" method="POST" enctype="multipart/form-data">
+                    <h2>Bloquear Tickets</h2>
                     @csrf
                     @method('PUT')
                     
@@ -58,9 +59,10 @@
 
 
             <!------------- DESBLOQUEAR CHECKLIST ------------>
-            <h3>Desbloquear tickets</h3>
+            
             <div class="cont_form">
                 <form action="{{route('ticket.desbloquear',$sorteo)}}" class="form" method="post">
+                    <h3 class="sub_inp">Desbloquear tickets</h3>
                     <select name="desbloquear" id="desbloq" class="input_form">
                         <option value="0">0</option>
                     </select>
@@ -73,9 +75,10 @@
 
             <!--------- BOTTON PARA GENERACION ALEATORIA ------->
 
-            <h3>Generar tickets aleatorios</h3>
+            
             <div class="cont_form">
                 <form action="#" class="form">
+                    <h3 class="sub_inp">Generar tickets aleatorios</h3>
                     <button class="button">Generar</button>
                 </form>
             </div>
