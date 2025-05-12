@@ -42,7 +42,7 @@
                 </thead>
                 <tbody>
                     @foreach($pagos as $pago)
-                    {{ $filtro? $pago->where('estado_pago', $filtro) : $pago }}
+                    {{-- {{ $filtro? $pago->where('estado_pago', $filtro) : $pago }} --}}
                     <tr>
                         <td>{{ $pago->cedula_cliente }}</td>
                         <td>{{ $pago->referencia }}</td>

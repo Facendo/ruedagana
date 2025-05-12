@@ -14,8 +14,9 @@ class TicketController extends Controller
     
     public function index(int $id_sorteo)
     {
+        $tickets = Ticket::all();
         $sorteo= Sorteo::find($id_sorteo);
-        return view('admin.tickets', compact('sorteo'));
+        return view('admin.tickets', compact('sorteo', 'tickets'));
     }
 
     /**
@@ -97,9 +98,9 @@ class TicketController extends Controller
         return redirect()->route('admin.index')->with('success', 'Ticket deleted successfully.');
     }
 
-    public function bloquear(Request $request, int $id_sorteo)
+    public function bloquear(Request $request, Sorteo $sorteo)
     {   
-        $sorteo = Sorteo::find($id_sorteo);
+        //$sorteo = Sorteo::find($id_sorteo);
 
         $valorABloquear = $request->numero_a_bloquear;
         $numerosDisponibles = json_decode($sorteo->numeros_disponibles, true) ?? [];
@@ -121,12 +122,12 @@ class TicketController extends Controller
         $sorteo->numeros_ganadores = json_encode(array_values($numerosGanadores)); 
         $sorteo->save();
 
-        return redirect()->route('sorteo.index');
+        return redirect()->route('pago.index'); 
     }
 
-    public function desbloquear(Request $request, int $id_sorteo)
+    public function desbloquear(Request $request, Sorteo $sorteo)
     {   
-        $sorteo = Sorteo::find($id_sorteo);
+        //$sorteo = Sorteo::find($id_sorteo);
 
         $valorADesbloquear = $request->numero_a_desbloquear;
         $numerosDisponibles = json_decode($sorteo->numeros_disponibles, true) ?? [];
@@ -148,6 +149,6 @@ class TicketController extends Controller
         $sorteo->numeros_ganadores = json_encode(array_values($nuevosNumerosGanadores));
         $sorteo->save();
 
-        return redirect()->route('sorteo.index');
+        return redirect()->route('pago.index');
     }
 }

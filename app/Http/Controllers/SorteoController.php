@@ -36,7 +36,7 @@ class SorteoController extends Controller
             $sorteo->sorteo_imagen = 'sorteo/' . $filename; // Guarda la ruta con el nombre original
         }
         $numeros_disponibles = [];
-        for ($i = 0; $i <= 10; $i++) {
+        for ($i = 0; $i <= 20; $i++) {
             $numeros_disponibles[] = $i;
         }
         $sorteo->numeros_disponibles = json_encode($numeros_disponibles);
