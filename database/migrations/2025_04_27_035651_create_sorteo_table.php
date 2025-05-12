@@ -16,7 +16,10 @@ return new class extends Migration
             $table->string('sorteo_nombre');
             $table->string('sorteo_descripcion');
             $table->string('sorteo_imagen');
-            $table->integer('precio_boleto');
+            $table->double('precio_boleto_bs');
+            $table->double('precio_boleto_dolar');
+            $table->json('numeros_disponibles')->nullable();
+            $table->json('numeros_ganadores')->nullable();
             $table->date('sorteo_fecha_inicio');
             $table->date('sorteo_fecha_fin');
             
