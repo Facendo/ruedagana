@@ -55,7 +55,7 @@
                                 <button type="submit" class="button">Eliminar</button>
                             </form>
                         </td>
-                        <td><a href="" class="button">Asignar ticket</a></td>
+                        <td><a href="{{route('ticket.index',$pago->id_sorteo)}}" class="button">Asignar ticket</a></td>
                     </tr>
                     @endforeach
                     
@@ -86,7 +86,8 @@
                     <input type="date" name="sorteo_fecha_inicio" id="sorteo_fecha_inicio" placeholder="Fecha de inicio del sorteo" class="input_form">
                     <input type="date" name="sorteo_fecha_fin" id="sorteo_fecha_fin" placeholder="Fecha de fin del sorteo" class="input_form">
                     <input type="text" name="sorteo_descripcion" id="sorteo_descripcion" placeholder="Descripcion del sorteo" class="input_form">
-                    <input type="text" name="precio_boleto" id="precio_boleto" placeholder="Precio del boleto" class="input_form">
+                    <input type="text" name="precio_boleto_bs" id="precio_boleto_bs" placeholder="Precio del boleto" class="input_form">
+                    <input type="text" name="precio_boleto_dolar" id="precio_boleto_dolar" placeholder="Precio del boleto" class="input_form">
                     <input type="file" name="sorteo_imagen" id="sorteo_imagen" placeholder="Imagen del sorteo" class="input_reg" accept="image/*">
                     
                     <br>

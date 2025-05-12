@@ -27,15 +27,19 @@ class SorteoController extends Controller
         $sorteo = new Sorteo();
         $sorteo->sorteo_nombre = $request->sorteo_nombre;
         $sorteo->sorteo_descripcion = $request->sorteo_descripcion;
-        $sorteo->precio_boleto = $request->precio_boleto;
+        $sorteo->precio_boleto_bs = $request->precio_boleto_bs;
+        $sorteo->precio_boleto_dolar = $request->precio_boleto_dolar;
         if ($request->hasFile('sorteo_imagen')) {
             $image = $request->file('sorteo_imagen');
             $filename = $image->getClientOriginalName();
             $path = $image->storeAs('sorteo', $filename, 'public'); // Guarda con el nombre original
             $sorteo->sorteo_imagen = 'sorteo/' . $filename; // Guarda la ruta con el nombre original
         }
-
-        
+        $numeros_disponibles = [];
+        for ($i = 0; $i <= 10; $i++) {
+            $numeros_disponibles[] = $i;
+        }
+        $sorteo->numeros_disponibles = json_encode($numeros_disponibles);
         $sorteo->sorteo_fecha_inicio = $request->sorteo_fecha_inicio;
         $sorteo->sorteo_fecha_fin= $request->sorteo_fecha_fin;
         $sorteo->created_at = now();
@@ -44,9 +48,9 @@ class SorteoController extends Controller
         return redirect()->route('sorteo.index');
     }
 
-
+    
    
-
+    
     /**
      * Update the specified resource in storage.
      */

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cliente;
+use App\Models\Sorteo;
 use App\Models\Ticket;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -11,9 +12,10 @@ use Illuminate\Support\Facades\Mail;
 class TicketController extends Controller
 {
     
-    public function index()
+    public function index(int $id_sorteo)
     {
-        return view('admin.tickets');
+        $sorteo= Sorteo::find($id_sorteo);
+        return view('admin.tickets', compact('sorteo'));
     }
 
     /**
@@ -93,5 +95,59 @@ class TicketController extends Controller
     {
         $ticket->delete();
         return redirect()->route('admin.index')->with('success', 'Ticket deleted successfully.');
+    }
+
+    public function bloquear(Request $request, int $id_sorteo)
+    {   
+        $sorteo = Sorteo::find($id_sorteo);
+
+        $valorABloquear = $request->numero_a_bloquear;
+        $numerosDisponibles = json_decode($sorteo->numeros_disponibles, true) ?? [];
+        $numerosGanadores = json_decode($sorteo->numeros_ganadores, true) ?? [];
+
+        $numeroBloqueadoEncontrado = false;
+        $nuevosNumerosDisponibles = [];
+
+        foreach ($numerosDisponibles as $numero) {
+            if ($numero == $valorABloquear && !$numeroBloqueadoEncontrado) {
+                $numerosGanadores[] = $valorABloquear;
+                $numeroBloqueadoEncontrado = true;
+            } else {
+                $nuevosNumerosDisponibles[] = $numero;
+            }
+        }
+
+        $sorteo->numeros_disponibles = json_encode(array_values($nuevosNumerosDisponibles));
+        $sorteo->numeros_ganadores = json_encode(array_values($numerosGanadores)); 
+        $sorteo->save();
+
+        return redirect()->route('sorteo.index');
+    }
+
+    public function desbloquear(Request $request, int $id_sorteo)
+    {   
+        $sorteo = Sorteo::find($id_sorteo);
+
+        $valorADesbloquear = $request->numero_a_desbloquear;
+        $numerosDisponibles = json_decode($sorteo->numeros_disponibles, true) ?? [];
+        $numerosGanadores = json_decode($sorteo->numeros_ganadores, true) ?? [];
+
+        $numeroDesbloqueadoEncontrado = false;
+        $nuevosNumerosGanadores = [];
+
+        foreach ($numerosGanadores as $numero) {
+            if ($numero == $valorADesbloquear && !$numeroDesbloqueadoEncontrado) {
+                $numerosDisponibles[] = $valorADesbloquear;
+                $numeroDesbloqueadoEncontrado = true;
+            } else {
+                $nuevosNumerosGanadores[] = $numero;
+            }
+        }
+
+        $sorteo->numeros_disponibles = json_encode(array_values($numerosDisponibles));
+        $sorteo->numeros_ganadores = json_encode(array_values($nuevosNumerosGanadores));
+        $sorteo->save();
+
+        return redirect()->route('sorteo.index');
     }
 }
