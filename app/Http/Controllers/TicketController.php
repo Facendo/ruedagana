@@ -31,18 +31,18 @@ class TicketController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, $id_sorteo,$cedula)
+    public function store(Request $request)
     {   
-        $cliente=Cliente::find($cedula);
+        $sorteo = Sorteo::find($request->id_sorteo);
         $admin = User::all();
         $ticket = new Ticket();
-        $ticket->id_sorteo = $id_sorteo;
+        $ticket->id_sorteo = $request->id_sorteo;
+        $ticket->nombre_sorteo = $sorteo->nombre_sorteo;
         $ticket->ticket_token = $this->buildtoken();
-        $ticket->nombre_cliente = $cliente->nombre_cliente;
-        $ticket->telefono_cliente = $cliente->telefono_cliente;
-        $ticket->correo_cliente = $cliente->correo_cliente;
-        $ticket->descripcion = $request->descripcion;
-        $ticket->confirmacion_de_pago = $request->confirmacion_de_pago;
+        $ticket->nombre_cliente = $request->nombre_cliente;
+        $ticket->telefono_cliente = $request->telefono_cliente;
+        $ticket->ticket_descripcion = $request->descripcion;
+        $ticket->confirmacion_de_pago = "Autorizado";
         $ticket->created_at = now();
         $ticket->updated_at = now();
         $ticket->save();
