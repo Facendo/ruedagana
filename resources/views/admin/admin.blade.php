@@ -58,7 +58,7 @@
                                 <button type="submit" class="button">Eliminar</button>
                             </form>
                         </td>
-                        <td><a href="{{route('ticket.index',['cedula'=>$pago->cedula_cliente])}}" class="button">Asignar ticket</a></td>
+                        <td><a href="{{route('ticket.index',['id_pago'=>$pago->id_pago])}}" class="button">Asignar ticket</a></td>
                     </tr>
                     @endforeach
                     
