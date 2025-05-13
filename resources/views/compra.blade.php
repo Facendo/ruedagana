@@ -16,17 +16,10 @@
 <h2 class="section_subtitle">REGISTRAR COMPRA</h2>
 <section id="compra" class="container container_compra">
         <div class="cont_form">
-<<<<<<< HEAD
-            <form action="{{route("cliente.store")}}" method="POST" class="form" enctype="multipart/form-data" class="form">
-                <h2>ingrese sus datos</h2>
-                @csrf
-                <input type="hidden" id="id_sorteo" name="id_sorteo" value="{{$sorteo->id_sorteo}}">
-=======
             <form action="" method="POST" class="form" enctype="multipart/form-data" class="form">
                 <h3>Ingrese sus datos</h3>
                 @csrf
                 <label for="cedula">Cedula:</label>
->>>>>>> fa3dda898fc7bba690376f755d89836aff5cd3f1
                 <input type="text" placeholder="cedula" id="cedula" name="cedula" class="input_form">
                 <label for="nombre">Nombre:</label>
                 <input type="text" placeholder="nombre" id="nombre" name="nombre"class="input_form">
@@ -49,11 +42,11 @@
                 <input type="date" placeholder="fecha de pago" id="fecha_de_pago" name="fecha_de_pago" class="input_form">
                 <div>
                     <label for="metodo_de_pago">Metodo de pago</label>
-                    <select id="metodo_de_pago" name="metodo_de_pago">
-                        <option value="Pago movil Banesco">Pago Movil Banesco</option>
-                        <option value="Pago movil Banplus">Pago Movil Banplus</option>
-                        <option value="Zinli">Zinli</option>
-                        <option value="Binance">Binance</option>
+                    <select id="metodo_de_pago" name="metodo_de_pago" class="input_select">
+                        <option value="Pago movil Banesco" class="input_option">Pago Movil Banesco</option>
+                        <option value="Pago movil Banplus" class="input_option">Pago Movil Banplus</option>
+                        <option value="Zinli" class="input_option">Zinli</option>
+                        <option value="Binance" class="input_option">Binance</option>
                     </select>
                 </div>
                 <div>

@@ -346,6 +346,21 @@ label{
 }
 
 
+.input_select{
+    width: 80%;
+    color: black;
+    border: none;
+    outline: none;
+}
+
+.input_option{
+    width: 80%;
+    color: black;
+    border: none;
+    outline: none;
+    background-color: aqua;
+}
+
 
 /* --------------------------------------- */
 
