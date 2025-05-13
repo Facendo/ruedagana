@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cliente;
+use App\Models\Pago;
 use App\Models\Sorteo;
 use App\Models\Ticket;
 use App\Models\User;
@@ -12,12 +13,12 @@ use Illuminate\Support\Facades\Mail;
 class TicketController extends Controller
 {
     
-    public function index(string $cedula)
-    {   
-        $cliente = Cliente::find($cedula);
+    public function index(int $id_pago)
+    {   $pago = Pago::find($id_pago);
+        $cliente = Cliente::find($pago->cedula_cliente);
         $tickets = Ticket::all();
         $sorteo= Sorteo::find($cliente->id_sorteo);
-        return view('admin.tickets', compact('sorteo', 'tickets','cliente'));
+        return view('admin.tickets', compact('sorteo', 'tickets','cliente', 'pago'));
     }
 
     /**
@@ -36,6 +37,9 @@ class TicketController extends Controller
         $sorteo = Sorteo::find($request->id_sorteo);
         $admin = User::all();
         $ticket = new Ticket();
+        $pago = Pago::find($request->id_pago);
+        $pago->estado_pago = 'Confirmado';
+        $pago->save();
         $ticket->cedula_cliente = $request->cedula_cliente;
         $ticket->id_sorteo = $request->id_sorteo;
         $ticket->nombre_sorteo = $sorteo->sorteo_nombre;
