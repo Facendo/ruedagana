@@ -10,7 +10,6 @@
     <title>Manejo de Tickets</title>
 </head>
 <body>
-
     <section class="container">
 
         <div class="section_tickets">
@@ -34,6 +33,7 @@
                                 <input type="hidden" name="nombre_cliente" value="{{$cliente->nombre}}">
                                 <input type="hidden" name="telefono_cliente" value="{{$cliente->telefono}}">
                                 <input type="hidden" name="correo_cliente" value="{{$cliente->correo}}">
+                                <input type="hidden" name="id_pago" value="{{$pago->id_pago}}">
                             <input type="submit" name="name" value="{{$numero}}" class="button">
                             </form>
                         @endforeach
@@ -81,9 +81,12 @@
                             @php
                                 $numeros_ganadores = json_decode($sorteo->numeros_ganadores);
                             @endphp
-                        @foreach($numeros_ganadores as $numero)
+                            @if ($numeros_ganadores != null)
+                                @foreach($numeros_ganadores as $numero)
                             <option value="{{$numero}}" class="input_option">{{$numero}}</option>
-                        @endforeach
+                            @endforeach
+                            @endif
+                        <option value="" class="input_option">No hay numeros ganadores</option>
                     </select>
                     <button type="submit" class="button">Desbloquear</button>
                 </form>
