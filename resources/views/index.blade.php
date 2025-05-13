@@ -39,7 +39,7 @@
                 <div class="containertext_presentacion">
                     <h1 class="text_presentacion">¡RUEDA Y GANA CON NOSOTROS!</h1>
                     <p class="text_center">Participa para ganar increibles premios cada semana, por tan solo 35bs</p>
-                    <a href="" class="button button_ini">Participar</a>
+                    <a href="#" class="button button_ini">Participar</a>
                 </div>
             </div>
         </div>
@@ -85,9 +85,9 @@
 
 
 
-<!------------------------- SECCION DE SORTEOS FINALIZADOS (COMENTADA) ------------------------->
+<!-- ----------------------- SECCION DE SORTEOS FINALIZADOS (COMENTADA) ------------------------->
 
-<!-- <section id="finish">
+<section id="finish">
 
        <h2 class="section_subtitle">Sorteos finalizados</h2>
 
@@ -105,12 +105,12 @@
                                 Fuga exercitationem voluptates aliquam mollitia. Assumenda,
                                 reiciendis.
                             </p>
-                            <a href="#" class="comprar">Participar</a>
+                            <a href="#" class="button">Participar</a>
                         </div>
             </div>
 
     </section>
- -->
+
 
 
 
@@ -175,6 +175,16 @@
 
             </div>
         </div>
+
+        <div>
+                    <label for="metodo_de_pago">Metodo de pago</label>
+                    <select id="metodo_de_pago" name="metodo_de_pago" class="input_select">
+                        <option value="Pago movil Banesco" class="input_option">Pago Movil Banesco</option>
+                        <option value="Pago movil Banplus" class="input_option">Pago Movil Banplus</option>
+                        <option value="Zinli" class="input_option">Zinli</option>
+                        <option value="Binance" class="input_option">Binance</option>
+                    </select>
+                </div>
 
     </section>
 
