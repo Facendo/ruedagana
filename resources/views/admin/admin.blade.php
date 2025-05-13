@@ -99,8 +99,8 @@
                     <input type="text" name="precio_boleto_bs" id="precio_boleto_bs" placeholder="Precio del boleto en bolivares" class="input_form">
                     <label for="precio_boleto_dolar">Precio boleto (dolar):</label>
                     <input type="text" name="precio_boleto_dolar" id="precio_boleto_dolar" placeholder="Precio del boleto en dolares" class="input_form">
-                    <label for="sorteo_imagen">Imagen:</label>
-                    <input type="file" name="sorteo_imagen" id="sorteo_imagen" placeholder="Imagen del sorteo" class="input_reg" accept="image/*">
+                    <label for="sorteo_imagen" class="file">Imagen:</label>
+                    <input type="file" name="sorteo_imagen" id="sorteo_imagen" placeholder="Imagen del sorteo" class="input_file" accept="image/*">
                     
                     <br>
 
@@ -166,9 +166,9 @@
                      
                     <div>
                     <label for="opcion">Sorteos</label>
-                    <select id="Sorteo" name="id_sorteo">
+                    <select id="Sorteo" name="id_sorteo" class="input_select">
                         @foreach ($sorteos as $sorteo)
-                        <option value="{{$sorteo->id_sorteo}}">{{$sorteo->sorteo_nombre}}</option>
+                        <option value="{{$sorteo->id_sorteo}}"class="input_option">{{$sorteo->sorteo_nombre}}</option>
                         @endforeach    
                     </select>
                    
@@ -178,8 +178,8 @@
                     <input type="text" name="premio_nombre" id="premio_nombre" placeholder="Nombre premio" class="input_form">
                     <label for="premio_descripcion">Descripcion del premio:</label>
                     <input type="text" name="premio_descripcion" id="premio_descripcion" placeholder="Descripcion premio" class="input_form">
-                    <label for="premio_imagen">Imagen del premio:</label>
-                    <input type="file" name="premio_imagen" id="premio_imagen" placeholder="Imagen de premio" >
+                    <label for="premio_imagen" class="file">Imagen del premio:</label>
+                    <input type="file" name="premio_imagen" id="premio_imagen" placeholder="Imagen de premio" class="input_file">
                     <br>
                     <button type="submit" class="btn_reg_sorteo button">Registrar Premio</button>
                 </form>

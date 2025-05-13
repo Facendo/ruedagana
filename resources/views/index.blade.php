@@ -176,15 +176,6 @@
             </div>
         </div>
 
-        <div>
-                    <label for="metodo_de_pago">Metodo de pago</label>
-                    <select id="metodo_de_pago" name="metodo_de_pago" class="input_select">
-                        <option value="Pago movil Banesco" class="input_option">Pago Movil Banesco</option>
-                        <option value="Pago movil Banplus" class="input_option">Pago Movil Banplus</option>
-                        <option value="Zinli" class="input_option">Zinli</option>
-                        <option value="Binance" class="input_option">Binance</option>
-                    </select>
-                </div>
 
     </section>
 
