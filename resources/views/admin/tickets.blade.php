@@ -33,6 +33,7 @@
                                 <input type="hidden" name="nombre_cliente" value="{{$cliente->nombre}}">
                                 <input type="hidden" name="telefono_cliente" value="{{$cliente->telefono}}">
                                 <input type="hidden" name="correo_cliente" value="{{$cliente->correo}}">
+                                <input type="hidden" name="id_pago" value="{{$pago->id_pago}}">
                             <input type="submit" name="name" value="{{$numero}}" class="button">
                             </form>
                         @endforeach
