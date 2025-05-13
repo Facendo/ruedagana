@@ -25,9 +25,17 @@
                                 $numeros_disponibles = json_decode($sorteo->numeros_disponibles);
                             @endphp
                         @foreach ($numeros_disponibles as $numero )
-                            
+                            <form action="{{route('ticket.store')}}" method="POST" class="form">
+                                @csrf
+                                @method('POST')
+                                <input type="hidden" name="id_sorteo" value="{{$sorteo->id_sorteo}}">
+                                <input type="hidden" name="descripcion" value="{{$numero}}">
+                                <input type="hidden" name="cedula_cliente" value="{{$cliente->cedula}}">
+                                <input type="hidden" name="nombre_cliente" value="{{$cliente->nombre}}">
+                                <input type="hidden" name="telefono_cliente" value="{{$cliente->telefono}}">
+                                <input type="hidden" name="correo_cliente" value="{{$cliente->correo}}">
                             <input type="submit" name="name" value="{{$numero}}" class="button">
-                        
+                            </form>
                         @endforeach
 
                     </div>
@@ -70,7 +78,7 @@
                     @method('PUT')
                     <h3 class="sub_inp">Desbloquear tickets</h3>
                     <select name="numero_a_desbloquear" id="numero_a_desbloquear" class="input_select">
-                        @php
+                            @php
                                 $numeros_ganadores = json_decode($sorteo->numeros_ganadores);
                             @endphp
                         @foreach($numeros_ganadores as $numero)
