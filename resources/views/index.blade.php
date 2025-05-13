@@ -39,7 +39,7 @@
                 <div class="containertext_presentacion">
                     <h1 class="text_presentacion">¡RUEDA Y GANA CON NOSOTROS!</h1>
                     <p class="text_center">Participa para ganar increibles premios cada semana, por tan solo 35bs</p>
-                    <a href="" class="button button_ini">Participar</a>
+                    <a href="#" class="button button_ini">Participar</a>
                 </div>
             </div>
         </div>
@@ -85,9 +85,9 @@
 
 
 
-<!------------------------- SECCION DE SORTEOS FINALIZADOS (COMENTADA) ------------------------->
+<!-- ----------------------- SECCION DE SORTEOS FINALIZADOS (COMENTADA) ------------------------->
 
-<!-- <section id="finish">
+<section id="finish">
 
        <h2 class="section_subtitle">Sorteos finalizados</h2>
 
@@ -105,12 +105,12 @@
                                 Fuga exercitationem voluptates aliquam mollitia. Assumenda,
                                 reiciendis.
                             </p>
-                            <a href="#" class="comprar">Participar</a>
+                            <a href="#" class="button">Participar</a>
                         </div>
             </div>
 
     </section>
- -->
+
 
 
 
@@ -175,6 +175,7 @@
 
             </div>
         </div>
+
 
     </section>
 
