@@ -16,9 +16,11 @@
 <h2 class="section_subtitle">REGISTRAR COMPRA</h2>
 <section id="compra" class="container container_compra">
         <div class="cont_form">
-            <form action="" method="POST" class="form" enctype="multipart/form-data" class="form">
-                <h3>Ingrese sus datos</h3>
+
+            <form action="{{route("cliente.store")}}" method="POST" class="form" enctype="multipart/form-data" class="form">
+                <h2>ingrese sus datos</h2>
                 @csrf
+                <input type="hidden" id="id_sorteo" name="id_sorteo" value="{{$sorteo->id_sorteo}}">
                 <label for="cedula">Cedula:</label>
                 <input type="text" placeholder="cedula" id="cedula" name="cedula" class="input_form">
                 <label for="nombre">Nombre:</label>
