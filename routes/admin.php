@@ -8,4 +8,3 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/admin', [PagoController::class, 'index'])->name('pago.index');
 Route::delete('/admin/{id_pago}', [PagoController::class, 'destroy'])->name('pago.destroy');
-Route::post('/admin/{id_sorteo}/{cedula}', [TicketController::class, 'store'])->name('ticket.store');

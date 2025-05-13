@@ -12,11 +12,12 @@ use Illuminate\Support\Facades\Mail;
 class TicketController extends Controller
 {
     
-    public function index(int $id_sorteo)
-    {
+    public function index(string $cedula)
+    {   
+        $cliente = Cliente::find($cedula);
         $tickets = Ticket::all();
-        $sorteo= Sorteo::find($id_sorteo);
-        return view('admin.tickets', compact('sorteo', 'tickets'));
+        $sorteo= Sorteo::find($cliente->id_sorteo);
+        return view('admin.tickets', compact('sorteo', 'tickets','cliente'));
     }
 
     /**
@@ -113,7 +114,8 @@ class TicketController extends Controller
             if ($numero == $valorABloquear && !$numeroBloqueadoEncontrado) {
                 $numerosGanadores[] = $valorABloquear;
                 $numeroBloqueadoEncontrado = true;
-            } else {
+            } 
+            else {
                 $nuevosNumerosDisponibles[] = $numero;
             }
         }
