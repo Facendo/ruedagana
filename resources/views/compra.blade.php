@@ -21,6 +21,7 @@
                 <h2>ingrese sus datos</h2>
                 @csrf
                 <input type="hidden" id="id_sorteo" name="id_sorteo" value="{{$sorteo->id_sorteo}}">
+                <label for="cedula">Cedula:</label>
                 <input type="text" placeholder="cedula" id="cedula" name="cedula" class="input_form">
                 <label for="nombre">Nombre:</label>
                 <input type="text" placeholder="nombre" id="nombre" name="nombre"class="input_form">

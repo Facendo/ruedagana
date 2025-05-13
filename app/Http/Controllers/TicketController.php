@@ -114,7 +114,8 @@ class TicketController extends Controller
             if ($numero == $valorABloquear && !$numeroBloqueadoEncontrado) {
                 $numerosGanadores[] = $valorABloquear;
                 $numeroBloqueadoEncontrado = true;
-            } else {
+            } 
+            else {
                 $nuevosNumerosDisponibles[] = $numero;
             }
         }
