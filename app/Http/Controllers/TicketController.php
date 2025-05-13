@@ -12,11 +12,12 @@ use Illuminate\Support\Facades\Mail;
 class TicketController extends Controller
 {
     
-    public function index(int $id_sorteo)
-    {
+    public function index(string $cedula)
+    {   
+        $cliente = Cliente::find($cedula);
         $tickets = Ticket::all();
-        $sorteo= Sorteo::find($id_sorteo);
-        return view('admin.tickets', compact('sorteo', 'tickets'));
+        $sorteo= Sorteo::find($cliente->id_sorteo);
+        return view('admin.tickets', compact('sorteo', 'tickets','cliente'));
     }
 
     /**
@@ -30,18 +31,18 @@ class TicketController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, $id_sorteo,$cedula)
+    public function store(Request $request)
     {   
-        $cliente=Cliente::find($cedula);
+        $sorteo = Sorteo::find($request->id_sorteo);
         $admin = User::all();
         $ticket = new Ticket();
-        $ticket->id_sorteo = $id_sorteo;
+        $ticket->id_sorteo = $request->id_sorteo;
+        $ticket->nombre_sorteo = $sorteo->nombre_sorteo;
         $ticket->ticket_token = $this->buildtoken();
-        $ticket->nombre_cliente = $cliente->nombre_cliente;
-        $ticket->telefono_cliente = $cliente->telefono_cliente;
-        $ticket->correo_cliente = $cliente->correo_cliente;
-        $ticket->descripcion = $request->descripcion;
-        $ticket->confirmacion_de_pago = $request->confirmacion_de_pago;
+        $ticket->nombre_cliente = $request->nombre_cliente;
+        $ticket->telefono_cliente = $request->telefono_cliente;
+        $ticket->ticket_descripcion = $request->descripcion;
+        $ticket->confirmacion_de_pago = "Autorizado";
         $ticket->created_at = now();
         $ticket->updated_at = now();
         $ticket->save();
@@ -100,55 +101,52 @@ class TicketController extends Controller
 
     public function bloquear(Request $request, Sorteo $sorteo)
     {   
-        //$sorteo = Sorteo::find($id_sorteo);
 
         $valorABloquear = $request->numero_a_bloquear;
-        $numerosDisponibles = json_decode($sorteo->numeros_disponibles, true) ?? [];
-        $numerosGanadores = json_decode($sorteo->numeros_ganadores, true) ?? [];
+        $numerosDisponibles = json_decode($sorteo->numeros_disponibles);
+        $numerosGanadores = json_decode($sorteo->numeros_ganadores);
 
-        $numeroBloqueadoEncontrado = false;
-        $nuevosNumerosDisponibles = [];
+        $indiceEncontrado = array_search($valorABloquear, $numerosDisponibles);
 
-        foreach ($numerosDisponibles as $numero) {
-            if ($numero == $valorABloquear && !$numeroBloqueadoEncontrado) {
-                $numerosGanadores[] = $valorABloquear;
-                $numeroBloqueadoEncontrado = true;
-            } else {
-                $nuevosNumerosDisponibles[] = $numero;
-            }
+        if ($indiceEncontrado !== false) {
+            $numerosGanadores[] = $valorABloquear;
+            unset($numerosDisponibles[$indiceEncontrado]);
+            $nuevosNumerosDisponibles = array_values($numerosDisponibles); // Reindexar
+
+            $sorteo->numeros_disponibles = json_encode($nuevosNumerosDisponibles);
+            $sorteo->numeros_ganadores = json_encode(array_values($numerosGanadores));
+            $sorteo->save();
+
+            return redirect()->route('pago.index');
+        } else {
+            return redirect()->route('pago.index');
         }
 
-        $sorteo->numeros_disponibles = json_encode(array_values($nuevosNumerosDisponibles));
-        $sorteo->numeros_ganadores = json_encode(array_values($numerosGanadores)); 
-        $sorteo->save();
-
-        return redirect()->route('pago.index'); 
     }
 
     public function desbloquear(Request $request, Sorteo $sorteo)
     {   
-        //$sorteo = Sorteo::find($id_sorteo);
-
+       
         $valorADesbloquear = $request->numero_a_desbloquear;
-        $numerosDisponibles = json_decode($sorteo->numeros_disponibles, true) ?? [];
-        $numerosGanadores = json_decode($sorteo->numeros_ganadores, true) ?? [];
+        $numerosDisponibles = json_decode($sorteo->numeros_disponibles);
+        $numerosGanadores = json_decode($sorteo->numeros_ganadores);
 
-        $numeroDesbloqueadoEncontrado = false;
-        $nuevosNumerosGanadores = [];
+        $indiceEncontradoEnGanadores = array_search($valorADesbloquear, $numerosGanadores);
 
-        foreach ($numerosGanadores as $numero) {
-            if ($numero == $valorADesbloquear && !$numeroDesbloqueadoEncontrado) {
-                $numerosDisponibles[] = $valorADesbloquear;
-                $numeroDesbloqueadoEncontrado = true;
-            } else {
-                $nuevosNumerosGanadores[] = $numero;
-            }
+        if ($indiceEncontradoEnGanadores !== false) {
+            $numerosDisponibles[] = $valorADesbloquear;
+            unset($numerosGanadores[$indiceEncontradoEnGanadores]);
+            $nuevosNumerosGanadores = array_values($numerosGanadores); // Reindexar
+            sort($numerosDisponibles); // Ordenar los números disponibles
+            $sorteo->numeros_disponibles = json_encode(array_values($numerosDisponibles));
+            $sorteo->numeros_ganadores = json_encode($nuevosNumerosGanadores);
+            $sorteo->save();
+
+            return redirect()->route('pago.index');
+        } else {
+            return redirect()->route('pago.index');
         }
-
-        $sorteo->numeros_disponibles = json_encode(array_values($numerosDisponibles));
-        $sorteo->numeros_ganadores = json_encode(array_values($nuevosNumerosGanadores));
-        $sorteo->save();
-
-        return redirect()->route('pago.index');
     }
+    
 }
+

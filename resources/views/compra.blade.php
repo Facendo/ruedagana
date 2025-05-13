@@ -15,7 +15,12 @@
 
 <h2 class="section_subtitle">REGISTRAR COMPRA</h2>
 <section id="compra" class="container container_compra">
+<<<<<<< HEAD
         <div class="cont_form cont_form_compra">
+=======
+        <div class="cont_form">
+
+>>>>>>> 91e7344e19dbf506eef77aa2e4b584676e671d2b
             <form action="{{route("cliente.store")}}" method="POST" class="form" enctype="multipart/form-data" class="form">
                 <h2>ingrese sus datos</h2>
                 @csrf
