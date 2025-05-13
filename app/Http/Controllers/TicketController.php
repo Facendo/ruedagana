@@ -101,56 +101,52 @@ class TicketController extends Controller
 
     public function bloquear(Request $request, Sorteo $sorteo)
     {   
-        //$sorteo = Sorteo::find($id_sorteo);
 
         $valorABloquear = $request->numero_a_bloquear;
-        $numerosDisponibles = json_decode($sorteo->numeros_disponibles, true) ?? [];
-        $numerosGanadores = json_decode($sorteo->numeros_ganadores, true) ?? [];
+        $numerosDisponibles = json_decode($sorteo->numeros_disponibles);
+        $numerosGanadores = json_decode($sorteo->numeros_ganadores);
 
-        $numeroBloqueadoEncontrado = false;
-        $nuevosNumerosDisponibles = [];
+        $indiceEncontrado = array_search($valorABloquear, $numerosDisponibles);
 
-        foreach ($numerosDisponibles as $numero) {
-            if ($numero == $valorABloquear && !$numeroBloqueadoEncontrado) {
-                $numerosGanadores[] = $valorABloquear;
-                $numeroBloqueadoEncontrado = true;
-            } 
-            else {
-                $nuevosNumerosDisponibles[] = $numero;
-            }
+        if ($indiceEncontrado !== false) {
+            $numerosGanadores[] = $valorABloquear;
+            unset($numerosDisponibles[$indiceEncontrado]);
+            $nuevosNumerosDisponibles = array_values($numerosDisponibles); // Reindexar
+
+            $sorteo->numeros_disponibles = json_encode($nuevosNumerosDisponibles);
+            $sorteo->numeros_ganadores = json_encode(array_values($numerosGanadores));
+            $sorteo->save();
+
+            return redirect()->route('pago.index');
+        } else {
+            return redirect()->route('pago.index');
         }
 
-        $sorteo->numeros_disponibles = json_encode(array_values($nuevosNumerosDisponibles));
-        $sorteo->numeros_ganadores = json_encode(array_values($numerosGanadores)); 
-        $sorteo->save();
-
-        return redirect()->route('pago.index'); 
     }
 
     public function desbloquear(Request $request, Sorteo $sorteo)
     {   
-        //$sorteo = Sorteo::find($id_sorteo);
-
+       
         $valorADesbloquear = $request->numero_a_desbloquear;
-        $numerosDisponibles = json_decode($sorteo->numeros_disponibles, true) ?? [];
-        $numerosGanadores = json_decode($sorteo->numeros_ganadores, true) ?? [];
+        $numerosDisponibles = json_decode($sorteo->numeros_disponibles);
+        $numerosGanadores = json_decode($sorteo->numeros_ganadores);
 
-        $numeroDesbloqueadoEncontrado = false;
-        $nuevosNumerosGanadores = [];
+        $indiceEncontradoEnGanadores = array_search($valorADesbloquear, $numerosGanadores);
 
-        foreach ($numerosGanadores as $numero) {
-            if ($numero == $valorADesbloquear && !$numeroDesbloqueadoEncontrado) {
-                $numerosDisponibles[] = $valorADesbloquear;
-                $numeroDesbloqueadoEncontrado = true;
-            } else {
-                $nuevosNumerosGanadores[] = $numero;
-            }
+        if ($indiceEncontradoEnGanadores !== false) {
+            $numerosDisponibles[] = $valorADesbloquear;
+            unset($numerosGanadores[$indiceEncontradoEnGanadores]);
+            $nuevosNumerosGanadores = array_values($numerosGanadores); // Reindexar
+            sort($numerosDisponibles); // Ordenar los números disponibles
+            $sorteo->numeros_disponibles = json_encode(array_values($numerosDisponibles));
+            $sorteo->numeros_ganadores = json_encode($nuevosNumerosGanadores);
+            $sorteo->save();
+
+            return redirect()->route('pago.index');
+        } else {
+            return redirect()->route('pago.index');
         }
-
-        $sorteo->numeros_disponibles = json_encode(array_values($numerosDisponibles));
-        $sorteo->numeros_ganadores = json_encode(array_values($nuevosNumerosGanadores));
-        $sorteo->save();
-
-        return redirect()->route('pago.index');
     }
+    
 }
+
