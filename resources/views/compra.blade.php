@@ -43,11 +43,11 @@
                 <input type="date" placeholder="fecha de pago" id="fecha_de_pago" name="fecha_de_pago" class="input_form">
                 <div>
                     <label for="metodo_de_pago">Metodo de pago</label>
-                    <select id="metodo_de_pago" name="metodo_de_pago">
-                        <option value="Pago movil Banesco">Pago Movil Banesco</option>
-                        <option value="Pago movil Banplus">Pago Movil Banplus</option>
-                        <option value="Zinli">Zinli</option>
-                        <option value="Binance">Binance</option>
+                    <select id="metodo_de_pago" name="metodo_de_pago" class="input_select">
+                        <option value="Pago movil Banesco" class="input_option">Pago Movil Banesco</option>
+                        <option value="Pago movil Banplus" class="input_option">Pago Movil Banplus</option>
+                        <option value="Zinli" class="input_option">Zinli</option>
+                        <option value="Binance" class="input_option">Binance</option>
                     </select>
                 </div>
                 <div>
