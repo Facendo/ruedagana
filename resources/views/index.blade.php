@@ -197,7 +197,14 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quaerat.</p>
             </div>
             
-            <div class="cont_foot"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quaerat.</p></div>
+            <div class="cont_foot">
+                <h2 class="slogan_footer">Redes Sociales</h2>
+                <a href="https://www.instagram.com/carlitospaz0?igsh=czNscDg4dGxwejI3"><img src="{{asset('img/instagram.png')}}" alt="instagram.pnp" class="icon_contact"></a>
+                <a href="https://www.tiktok.com/@enriquepaz.01?_t=ZM-8wKbc4qvL7v&_r=1"><img src="{{asset('img/tik-tok.png')}}" alt="tiktok.pnp" class="icon_contact"></a>
+                <a href="https://api.whatsapp.com/send?phone=584248676344&text=Hola%2C%20Quisiera%20comunicarme%20con%20rueda%20y%20gana.com"><img src="{{asset('img/whatsapp.png')}}" alt="whatsapp.pnp" class="icon_contact"></a>
+            </div>
+
+
             <div class="cont_foot"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quaerat.</p></div>
 
         </div>
