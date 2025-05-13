@@ -66,8 +66,10 @@
             
             <div class="cont_form">
                 <form action="{{route('ticket.desbloquear',$sorteo)}}" class="form" method="post">
+                    @csrf
+                    @method('PUT')
                     <h3 class="sub_inp">Desbloquear tickets</h3>
-                    <select name="desbloquear" id="desbloq" class="input_select">
+                    <select name="numero_a_desbloquear" id="numero_a_desbloquear" class="input_select">
                         @php
                                 $numeros_ganadores = json_decode($sorteo->numeros_ganadores);
                             @endphp
