@@ -194,7 +194,10 @@
 
             <div class="cont_foot">
                 <h2 class="slogan_footer">GRACIAS POR VISITAR</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quaerat.</p>
+                <p>“Aquí no hay suerte, hay propósito.
+Dios guía cada jugada y tú solo tienes que jugar pa’ ganar.
+Bienvenido a donde los sueños se hacen realidad:
+¡Rueda y Gana con Nosotros!”</p>
             </div>
             
             <div class="cont_foot">
