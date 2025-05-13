@@ -10,7 +10,6 @@
     <title>Manejo de Tickets</title>
 </head>
 <body>
-
     <section class="container">
 
         <div class="section_tickets">
@@ -81,9 +80,12 @@
                             @php
                                 $numeros_ganadores = json_decode($sorteo->numeros_ganadores);
                             @endphp
-                        @foreach($numeros_ganadores as $numero)
+                            @if ($numeros_ganadores != null)
+                                @foreach($numeros_ganadores as $numero)
                             <option value="{{$numero}}" class="input_option">{{$numero}}</option>
-                        @endforeach
+                            @endforeach
+                            @endif
+                        <option value="" class="input_option">No hay numeros ganadores</option>
                     </select>
                     <button type="submit" class="button">Desbloquear</button>
                 </form>
