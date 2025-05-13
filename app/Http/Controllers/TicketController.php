@@ -36,13 +36,13 @@ class TicketController extends Controller
         $sorteo = Sorteo::find($request->id_sorteo);
         $admin = User::all();
         $ticket = new Ticket();
+        $ticket->cedula_cliente = $request->cedula_cliente;
         $ticket->id_sorteo = $request->id_sorteo;
-        $ticket->nombre_sorteo = $sorteo->nombre_sorteo;
+        $ticket->nombre_sorteo = $sorteo->sorteo_nombre;
         $ticket->ticket_token = $this->buildtoken();
         $ticket->nombre_cliente = $request->nombre_cliente;
         $ticket->telefono_cliente = $request->telefono_cliente;
         $ticket->ticket_descripcion = $request->descripcion;
-        $ticket->confirmacion_de_pago = "Autorizado";
         $ticket->created_at = now();
         $ticket->updated_at = now();
         $ticket->save();
@@ -51,7 +51,7 @@ class TicketController extends Controller
         foreach ($admin as $user) {
             Mail::to($user->email);
         }
-        return redirect()->route('admin.index')->with('success', 'Ticket created successfully.');
+        return redirect()->route('pago.index')->with('success', 'Ticket created successfully.');
     }
 
     private function buildtoken($length = 8)
