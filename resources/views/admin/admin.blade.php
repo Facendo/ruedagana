@@ -25,6 +25,7 @@
 
     <div id="section_ventas_admin" class="container section_ventas">
         <h2 class="section_subtitle">Tabla de pagos de boletos</h2>
+
         <div class="container_table">
             <table id="table_gestion" class="table_gestion">
                 <thead>
@@ -42,7 +43,6 @@
                 </thead>
                 <tbody>
                     @foreach($pagos as $pago)
-                    {{-- {{ $filtro? $pago->where('estado_pago', $filtro) : $pago }} --}}
                     <tr>
                         <td>{{ $pago->cedula_cliente }}</td>
                         <td>{{ $pago->referencia }}</td>

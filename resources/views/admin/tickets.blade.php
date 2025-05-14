@@ -13,7 +13,19 @@
     <section class="container">
 
         <div class="section_tickets">
-
+            <div>
+                <form action="{{route('ticket.store')}}" method="POST" class="form">
+                            @csrf
+                            @method('POST')
+                            <input type="hidden" name="id_sorteo" value="{{$sorteo->id_sorteo}}">
+                                                           <input type="hidden" name="cedula_cliente" value="{{$cliente->cedula}}">
+                            <input type="hidden" name="nombre_cliente" value="{{$cliente->nombre}}">
+                            <input type="hidden" name="telefono_cliente" value="{{$cliente->telefono}}">
+                            <input type="hidden" name="correo_cliente" value="{{$cliente->correo}}">
+                            <input type="hidden" name="id_pago" value="{{$pago->id_pago}}">
+                            <button>generar ticket</button>
+                </form>
+            </div>
 
             <div class="container_tickets">
                 <h2 class="section_subtitle">Selecciona el ticket</h2>
@@ -24,18 +36,9 @@
                                 $numeros_disponibles = json_decode($sorteo->numeros_disponibles);
                             @endphp
                         @foreach ($numeros_disponibles as $numero )
-                            <form action="{{route('ticket.store')}}" method="POST" class="form">
-                                @csrf
-                                @method('POST')
-                                <input type="hidden" name="id_sorteo" value="{{$sorteo->id_sorteo}}">
-                                <input type="hidden" name="descripcion" value="{{$numero}}">
-                                <input type="hidden" name="cedula_cliente" value="{{$cliente->cedula}}">
-                                <input type="hidden" name="nombre_cliente" value="{{$cliente->nombre}}">
-                                <input type="hidden" name="telefono_cliente" value="{{$cliente->telefono}}">
-                                <input type="hidden" name="correo_cliente" value="{{$cliente->correo}}">
-                                <input type="hidden" name="id_pago" value="{{$pago->id_pago}}">
+                            <input type="hidden" name="descripcion" value="{{$numero}}"> 
                             <input type="submit" name="name" value="{{$numero}}" class="button">
-                            </form>
+                            
                         @endforeach
 
                     </div>
