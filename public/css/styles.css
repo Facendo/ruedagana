@@ -70,7 +70,11 @@ RGB(10, 180, 171) BLUE COLOR
 
 .text_presentacion{
     font-family: "Luckiest Guy", sans-serif;
+}
 
+h1{
+    font-family: "Luckiest Guy", sans-serif;
+    color: rgb(254, 180, 3);
 }
 
 nav.menu{
@@ -147,6 +151,11 @@ h3{
 p.text_card{
     text-align: center;
     margin: 15px;
+}
+
+li{
+  margin: 15px;  
+  font-family: "Roboto Mono", monospace;
 }
 
 /* --------- INFRMACION DE PAGO -----------   */
@@ -396,6 +405,10 @@ label{
     color: white;
 }
 
+.enlace{
+    color: black;
+}
+
 
 /* --------------------------------------- */
 
@@ -479,7 +492,9 @@ form.form_tickets{
     background-color: rgb(169, 149, 0);
 
 }
-
+ .text_footer{
+    color: rgb(100,100,100);
+ }
 
 
 

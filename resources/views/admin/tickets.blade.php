@@ -18,7 +18,7 @@
                             @csrf
                             @method('POST')
                             <input type="hidden" name="id_sorteo" value="{{$sorteo->id_sorteo}}">
-                                                           <input type="hidden" name="cedula_cliente" value="{{$cliente->cedula}}">
+                            <input type="hidden" name="cedula_cliente" value="{{$cliente->cedula}}">
                             <input type="hidden" name="nombre_cliente" value="{{$cliente->nombre}}">
                             <input type="hidden" name="telefono_cliente" value="{{$cliente->telefono}}">
                             <input type="hidden" name="correo_cliente" value="{{$cliente->correo}}">
@@ -36,7 +36,7 @@
                                 $numeros_disponibles = json_decode($sorteo->numeros_disponibles);
                             @endphp
                         @foreach ($numeros_disponibles as $numero )
-                            <input type="hidden" name="descripcion" value="{{$numero}}"> 
+                            <form action="{{route('ticket.store')}}" method="POST" class="form">
                             <input type="submit" name="name" value="{{$numero}}" class="button">
                             
                         @endforeach
