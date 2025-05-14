@@ -40,8 +40,9 @@
                             $numeros_disponibles = json_decode($sorteo->numeros_disponibles);
                         @endphp
                         @foreach ($numeros_disponibles as $numero )
-                            <input type="checkbox" name="numeros[]" value="{{$numero}}" id="numero_{{$numero}}" class="input_checkbox">
-                            <label for="numero_{{$numero}}" class="button">{{$numero}}</label>
+                            
+                            <input type="checkbox" name="numeros[]" value="{{$numero}}" id="numero_{{$numero}}" class="input_checkbox" class="checkbox_ticket">
+                            <label for="numero_{{$numero}}" class="button lbl_check">{{$numero}}</label>
                         @endforeach
                     </div>
                 </form>

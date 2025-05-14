@@ -409,6 +409,25 @@ label{
     color: black;
 }
 
+input[type=checkbox]{
+    display: none;
+    
+}
+
+.lbl_check{
+    font-family: "Roboto Mono", monospace;
+    font-weight: 20px;
+
+}
+
+
+input[type=checkbox]:checked + label{
+     background-color: red;
+     color: white;
+}
+
+
+
 
 /* --------------------------------------- */
 
