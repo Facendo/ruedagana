@@ -25,7 +25,7 @@
                     <input type="hidden" name="correo_cliente" value="{{$cliente->correo}}">
                     <input type="hidden" name="id_pago" value="{{$pago->id_pago}}">
                     <input type="hidden" name="numeros_seleccionados" id="numeros_seleccionados">
-                    <button type="button" onclick="enviarTickets()">Generar Tickets Seleccionados</button>
+                    <button type="button" onclick="enviarTickets()" class="button">Generar Tickets Seleccionados</button>
 
                          
                 </form>
