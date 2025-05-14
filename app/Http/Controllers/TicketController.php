@@ -125,8 +125,8 @@ class TicketController extends Controller
     {   
 
         $valorABloquear = $request->numero_a_bloquear;
-        $numerosDisponibles = json_decode($sorteo->numeros_disponibles);
-        $numerosGanadores = json_decode($sorteo->numeros_ganadores);
+        $numerosDisponibles = json_decode($sorteo->numeros_disponibles, true);
+        $numerosGanadores = json_decode($sorteo->numeros_ganadores, true);
 
         $indiceEncontrado = array_search($valorABloquear, $numerosDisponibles);
 
