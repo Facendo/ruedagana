@@ -15,6 +15,7 @@
         <div class="section_tickets">
             <div>
                 <form action="{{route('ticket.store')}}" method="POST" class="form">
+
                     @csrf
                     @method('POST')
                     <input type="hidden" name="id_sorteo" value="{{$sorteo->id_sorteo}}">
@@ -25,6 +26,8 @@
                     <input type="hidden" name="id_pago" value="{{$pago->id_pago}}">
                     <input type="hidden" name="numeros_seleccionados" id="numeros_seleccionados">
                     <button type="button" onclick="enviarTickets()">Generar Tickets Seleccionados</button>
+
+                         
                 </form>
             </div>
 
