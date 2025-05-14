@@ -14,6 +14,69 @@
 <body>
 
 <h2 class="section_subtitle">REGISTRAR COMPRA</h2>
+
+<section id="cuentas">
+
+        <div class="container">
+            <div class="container_card">
+
+                <div class="card_datos">
+                    <div class="container_datos">
+                        <img src="{{asset('img/banesco_logo.png')}}" alt="imagenlogo" class="logo_bdv">
+                        <div class="datos_pago">
+                            <h3>Pago Movil Banesco</h3>
+                            <p class="data">0134</p>
+                            <p class="data">28.407.272</p>
+                            <p class="data">0424-8676344</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card_datos">
+                    <div class="container_datos">
+                        <img src="{{asset('img/banplus_logo.png')}}" alt="imagenlogo" class="logo_bp">
+                        <div class="datos_pago">
+                            <h3>Pago Movil Banplus</h3>
+                            <p class="data">0174</p>
+                            <p class="data">28.588.823</p>
+                            <p class="data">0412-9425624</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card_datos">
+                    <div class="container_datos">
+
+                        <img src="{{asset('img/zelle_logo.webp')}}" alt="imagenlogo" class="logo_zin">
+
+                        <div class="datos_pago">
+                            <h3>Zinli</h3>
+                            <p class="data">Jesus Melean</p>
+                            <p class="data">Correo: rocktoyonyo@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card_datos">
+                    <div class="container_datos">
+                        <img src="{{asset('img/binance_logo.png')}}" alt="imagenlogo" class="logo_binance">
+                        <div class="datos_pago">
+                            <h3>Binance</h3>
+                            <p class="data">Jesus Melean</p>
+                            <p class="data">Correo: rocktoyonyo@gmail.com</p>
+                            <p class="data">ID: 163593375</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+</section>
+
+<br><br><br><br>    
+
 <section id="compra" class="container container_compra">
         <div class="cont_form cont_form_compra">
  

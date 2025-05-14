@@ -195,7 +195,7 @@
 
             <div class="cont_foot">
                 <h2 class="slogan_footer">GRACIAS POR VISITAR</h2>
-                <p>“Aquí no hay suerte, hay propósito.
+                <p class="text_footer">“Aquí no hay suerte, hay propósito.
 Dios guía cada jugada y tú solo tienes que jugar pa’ ganar.
 Bienvenido a donde los sueños se hacen realidad:
 ¡Rueda y Gana con Nosotros!”</p>
@@ -209,7 +209,16 @@ Bienvenido a donde los sueños se hacen realidad:
             </div>
 
 
-            <div class="cont_foot"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quaerat.</p></div>
+            <div class="cont_foot">
+            <h2 class="slogan_footer">Consulte:</h2> <br> 
+
+                <p class="text_footer">Antes de realizar alguna operacion, visite nuestros <br>
+                     <a href="{{Route("terminos")}}" class="enlace"> Terminos y Condiciones</a> y <a href="{{Route("politica")}}"" class="enlace">Politicas de privacidad</a>
+                </p>
+                <br>
+                <p class="text_footer">© 2025 Rueda y Gana con Nosotros. Todos los derechos reservados.</p>
+                
+            </div>
 
         </div>
     </div>
