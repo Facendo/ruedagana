@@ -24,8 +24,8 @@
                     <input type="hidden" name="correo_cliente" value="{{$cliente->correo}}">
                     <input type="hidden" name="id_pago" value="{{$pago->id_pago}}">
                     <input type="hidden" name="numeros_seleccionados" id="numeros_seleccionados">
-                    <button type="button" onclick="enviarTickets()">Generar Tickets Seleccionados</button>
-                    <button type="button" onclick="generarTicketAleatorio()" class="button">Generar Numeros Aleatorios</button>
+                    <button type="button" onclick="enviarTickets()" class="button">Generar Tickets Seleccionados</button>
+                    <button type="button" onclick="generarTicketAleatorio()" class="button" id="aleatorio">Generar Numeros Aleatorios</button>
                 </form>
             </div>
 
@@ -112,8 +112,8 @@
     </script>   
     <script>
         function generarTicketAleatorio() {
-            const numerosDisponiblesJSON = `{!! json_encode($sorteo->numeros_disponibles) !!}`;
-            const numerosDisponibles = JSON.parse(numerosDisponiblesJSON);
+            const numerosDisponiblesJSON = `{$sorteo->numeros_disponibles)}`;
+            const numerosDisponibles = JSON.parse(numerosDisponiblesJSON);  
 
             if (numerosDisponibles && numerosDisponibles.length > 0) {
                 const indiceAleatorio = Math.floor(Math.random() * numerosDisponibles.length);
@@ -121,7 +121,10 @@
 
                 document.getElementById('numeros_seleccionados').value = JSON.stringify([numeroAleatorio]);
                 document.getElementById('form').submit();
+
+                console.log("Número aleatorio generado:", numeroAleatorio);
             }
+
         }
     </script>
 

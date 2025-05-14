@@ -86,34 +86,6 @@
 
 
 
-<!-- ----------------------- SECCION DE SORTEOS FINALIZADOS (COMENTADA) ------------------------->
-
-<section id="finish">
-
-       <h2 class="section_subtitle">Sorteos finalizados</h2>
-
-            <div class="container">
-
-                <div class="container_card">
-
-                    <div class="card">
-                        <figure>
-                            <img src="{{asset('img/moto.webp')}}" alt="img_premio" class="img_card">
-                        </figure>
-                        <div class="contenido">
-                            <h3 class="title_card">Premio</h3>
-                            <p class="text_card">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Fuga exercitationem voluptates aliquam mollitia. Assumenda,
-                                reiciendis.
-                            </p>
-                            <a href="#" class="button">Participar</a>
-                        </div>
-            </div>
-
-    </section>
-
-
-
 
 
 <!----------------------- SECCION DE CUENTAS ----------------------------->
