@@ -23,7 +23,7 @@
                             <input type="hidden" name="telefono_cliente" value="{{$cliente->telefono}}">
                             <input type="hidden" name="correo_cliente" value="{{$cliente->correo}}">
                             <input type="hidden" name="id_pago" value="{{$pago->id_pago}}">
-                            <button>generar ticket</button>
+                            <button class="button">generar ticket</button>
                 </form>
             </div>
 
