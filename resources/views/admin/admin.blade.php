@@ -52,7 +52,7 @@
                         <td>{{ $pago->metodo_de_pago}}</td>
                         <td>{{ $pago->estado_pago }}</td>
                         <td>
-                            <form action={{route('pago.destroy',$pago->id_pago)}} method="POST" class="button">	
+                            <form action={{route('pago.destroy',$pago->id_pago)}} method="POST">	
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="button">Eliminar</button>
@@ -136,7 +136,7 @@
                         <td>{{ $sorteo->sorteo_fecha_inicio }}</td>
                         <td>{{ $sorteo->sorteo_fecha_fin }}</td>
                         <td>
-                            <form action={{route('sorteo.destroy',$sorteo)}} method="POST" class="button">	
+                            <form action={{route('sorteo.destroy',$sorteo)}} method="POST">	
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="button">Eliminar</button>

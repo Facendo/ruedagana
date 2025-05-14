@@ -14,17 +14,18 @@
 
         <div class="section_tickets">
             <div>
-                <form action="{{route('ticket.store')}}" method="POST" class="form">
-                    @csrf
-                    @method('POST')
-                    <input type="hidden" name="id_sorteo" value="{{$sorteo->id_sorteo}}">
-                    <input type="hidden" name="cedula_cliente" value="{{$cliente->cedula}}">
-                    <input type="hidden" name="nombre_cliente" value="{{$cliente->nombre}}">
-                    <input type="hidden" name="telefono_cliente" value="{{$cliente->telefono}}">
-                    <input type="hidden" name="correo_cliente" value="{{$cliente->correo}}">
-                    <input type="hidden" name="id_pago" value="{{$pago->id_pago}}">
-                    <input type="hidden" name="numeros_seleccionados" id="numeros_seleccionados">
-                    <button type="button" onclick="enviarTickets()">Generar Tickets Seleccionados</button>
+                <form action="{{route('ticket.store')}}" method="POST" class="form" >
+                            @csrf
+                            @method('POST')
+                            <input type="hidden" name="id_sorteo" value="{{$sorteo->id_sorteo}}">
+                            <input type="hidden" name="cedula_cliente" value="{{$cliente->cedula}}">
+                            <input type="hidden" name="nombre_cliente" value="{{$cliente->nombre}}">
+                            <input type="hidden" name="telefono_cliente" value="{{$cliente->telefono}}">
+                            <input type="hidden" name="correo_cliente" value="{{$cliente->correo}}">
+                            <input type="hidden" name="id_pago" value="{{$pago->id_pago}}">
+                            <input type="hidden" name="numeros_seleccionados" id="numeros_seleccionados">
+                            <button type="button" onclick="enviarTickets()">Generar Numeros Seleccionados</button>
+                            <button type="button" onclick="generarTicketAleatorio()" class="button">Generar Numeros Aleatorios</button>
                 </form>
             </div>
 
@@ -106,6 +107,20 @@
             const numerosSeleccionados = Array.from(checkboxes).map(checkbox => checkbox.value);
             document.getElementById('numeros_seleccionados').value = JSON.stringify(numerosSeleccionados);
             document.querySelector('form').submit();
+        }
+    </script>   
+    <script>
+        function generarTicketAleatorio() {
+            const numerosDisponiblesJSON = `{!! json_encode($sorteo->numeros_disponibles) !!}`;
+            const numerosDisponibles = JSON.parse(numerosDisponiblesJSON);
+
+            if (numerosDisponibles && numerosDisponibles.length > 0) {
+                const indiceAleatorio = Math.floor(Math.random() * numerosDisponibles.length);
+                const numeroAleatorio = numerosDisponibles[indiceAleatorio];
+
+                document.getElementById('numeros_seleccionados').value = JSON.stringify([numeroAleatorio]);
+                document.getElementById('form').submit();
+            }
         }
     </script>
 

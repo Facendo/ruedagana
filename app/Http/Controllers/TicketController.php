@@ -17,7 +17,7 @@ class TicketController extends Controller
     {   $pago = Pago::find($id_pago);
         $cliente = Cliente::find($pago->cedula_cliente);
         $tickets = Ticket::all();
-        $sorteo= Sorteo::find($cliente->id_sorteo);
+        $sorteo= Sorteo::find($pago->id_sorteo);
         return view('admin.tickets', compact('sorteo', 'tickets','cliente', 'pago'));
     }
 
