@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nombre_sorteo');
             $table->string('nombre_cliente');
             $table->string('telefono_cliente');
+            $table->json('numeros_seleccionados');
             $table->string('ticket_token')->unique();
             $table->string('ticket_descripcion')->default('pendiente');
             $table->timestamps();

@@ -34,21 +34,39 @@ class TicketController extends Controller
      */
     public function store(Request $request)
     {   
+
+        $numerosSeleccionados = json_decode($request->numeros_seleccionados);
+
         $sorteo = Sorteo::find($request->id_sorteo);
+
+        $numerosDisponibles = json_decode($sorteo->numeros_disponibles, true);
+
         $admin = User::all();
-        $ticket = new Ticket();
+
         $pago = Pago::find($request->id_pago);
         $pago->estado_pago = 'Confirmado';
         $pago->save();
+
+        $ticket = new Ticket();
         $ticket->cedula_cliente = $request->cedula_cliente;
         $ticket->id_sorteo = $request->id_sorteo;
         $ticket->nombre_sorteo = $sorteo->sorteo_nombre;
         $ticket->ticket_token = $this->buildtoken();
         $ticket->nombre_cliente = $request->nombre_cliente;
         $ticket->telefono_cliente = $request->telefono_cliente;
-        $ticket->ticket_descripcion = $request->descripcion;
+        $ticket->ticket_descripcion = "Ticket de la rifa " . $sorteo->sorteo_nombre;
+        $ticket->numeros_seleccionados = json_encode($numerosSeleccionados);
+
+        foreach ($numerosSeleccionados as $numero) {
+            $indiceEncontrado = array_search($numero, $numerosDisponibles);
+            if ($indiceEncontrado !== false) {
+                unset($numerosDisponibles[$indiceEncontrado]);
+            }
+        }
+        $sorteo->numeros_disponibles = json_encode($numerosDisponibles);
         $ticket->created_at = now();
         $ticket->updated_at = now();
+        $sorteo->save();
         $ticket->save();
 
         Mail::to($ticket->correo_cliente);
