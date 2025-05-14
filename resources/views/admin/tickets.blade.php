@@ -24,7 +24,7 @@
                                 $numeros_disponibles = json_decode($sorteo->numeros_disponibles);
                             @endphp
                         @foreach ($numeros_disponibles as $numero )
-                            <form action="{{route('ticket.store')}}" method="POST" class="form">
+                            <form action="{{route('ticket.store')}}" method="POST" class="cont_ticket">
                                 @csrf
                                 @method('POST')
                                 <input type="hidden" name="id_sorteo" value="{{$sorteo->id_sorteo}}">
