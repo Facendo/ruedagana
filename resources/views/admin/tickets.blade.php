@@ -25,7 +25,7 @@
                     <input type="hidden" name="correo_cliente" value="{{$cliente->correo}}">
                     <input type="hidden" name="id_pago" value="{{$pago->id_pago}}">
                     <input type="hidden" name="numeros_seleccionados" id="numeros_seleccionados">
-                    <button type="button" onclick="enviarTickets()">Generar Tickets Seleccionados</button>
+                    <button type="button" onclick="enviarTickets()" class="button">Generar Tickets Seleccionados</button>
 
                          
                 </form>
@@ -40,8 +40,9 @@
                             $numeros_disponibles = json_decode($sorteo->numeros_disponibles);
                         @endphp
                         @foreach ($numeros_disponibles as $numero )
-                            <input type="checkbox" name="numeros[]" value="{{$numero}}" id="numero_{{$numero}}" class="input_checkbox">
-                            <label for="numero_{{$numero}}" class="button">{{$numero}}</label>
+                            
+                            <input type="checkbox" name="numeros[]" value="{{$numero}}" id="numero_{{$numero}}" class="input_checkbox" class="checkbox_ticket">
+                            <label for="numero_{{$numero}}" class="button lbl_check">{{$numero}}</label>
                         @endforeach
                     </div>
                 </form>
