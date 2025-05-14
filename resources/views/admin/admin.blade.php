@@ -58,7 +58,13 @@
                                 <button type="submit" class="button">Eliminar</button>
                             </form>
                         </td>
-                        <td><a href="{{route('ticket.index',['id_pago'=>$pago->id_pago])}}" class="button">Asignar ticket</a></td>
+                        <td>
+                        @if ($pago->estado_pago == 'Confirmado')
+                                <label class="button" disabled>Ticket asignado</label>
+                            @else
+                                <a href="{{route('ticket.index',['id_pago'=>$pago->id_pago])}}" class="button">Asignar ticket</a>
+                            @endif
+                        </td>
                     </tr>
                     @endforeach
                     
