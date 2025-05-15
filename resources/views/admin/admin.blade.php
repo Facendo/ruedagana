@@ -67,7 +67,9 @@
                         </td>
                     </tr>
                     @endforeach
-                    
+                    <div class="pagination">
+                        {{ $pagos->links() }}
+                    </div>
                     
                 </tbody>
             </table>
