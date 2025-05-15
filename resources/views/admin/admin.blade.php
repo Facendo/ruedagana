@@ -18,11 +18,12 @@
 <!--------------- TABLA DE GESTION  ---------->
 
 
-    <a href="{{route('logout')}}"class="button">Cerrar sesion</a>
+    
     <h1 class="section_title">Panel de Administrador</h1>
 
     {{-- Filtrador para la tabla de pagos de boletos --}}
-
+    <a href="{{route('logout')}}"class="button">Cerrar sesion</a>
+    <a href="{{route('admin.showticket')}}" class="button">Tickets vendidos</a>
     <div id="section_ventas_admin" class="container section_ventas">
         <h2 class="section_subtitle">Tabla de pagos de boletos</h2>
 
