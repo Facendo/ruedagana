@@ -15,7 +15,7 @@ class PagoController extends Controller
     public function index()
     {
         $premios= Premio::all();
-        $pagos = Pago::all();
+        $pagos = Pago::paginate(5);
         $sorteos = Sorteo::all();
         return view('admin.admin',compact('pagos','premios','sorteos'));
     }
