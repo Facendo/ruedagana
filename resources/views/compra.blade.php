@@ -77,6 +77,11 @@
 
 <br><br><br><br>    
 
+@php
+    $numeros_disponibles = json_decode($sorteo->numeros_disponibles, true);
+    $cantidad_disponible = count($numeros_disponibles);
+@endphp
+
 <section id="compra" class="container container_compra">
         <div class="cont_form cont_form_compra">
  
@@ -95,9 +100,10 @@
                 <label for="correo">Correo:</label>
                 <input type="text" placeholder="correo" id="correo" name="correo" class="input_form" required>
                 <label for="cantidad_de_tickets">Cantidad de tickets:</label>
-                <input type="number" placeholder="cantidad de tickets" id="cantidad_de_tickets" name="cantidad_de_tickets" class="input_form"  required>
+                <p class="data">Tickets disponibles: {{$cantidad_disponible}}</p>
+                <input type="number" placeholder="cantidad de tickets" id="cantidad_de_tickets" name="cantidad_de_tickets" class="input_form"  required min="1" max="{{$cantidad_disponible}}">
                 <div class="sumador_de_montos">
-                    <h3>25</h3>
+                    <h3>Monto: BS 25 - $ 5</h3>
                 </div>
                 <label for="referencia">Referencia de pago:</label>
                 <input type="number" placeholder="referencia de pago" id="referencia" name="referencia" class="input_form" required>

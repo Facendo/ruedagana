@@ -24,9 +24,10 @@ class TicketController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function show()
     {
-        //Vista para crear un nuevo ticket
+        $tickets = Ticket::all();
+        return view('admin.showticket', compact('tickets'));
     }
 
     /**
@@ -34,16 +35,33 @@ class TicketController extends Controller
      */
     public function store(Request $request)
     {   
-
-        $numerosSeleccionados = json_decode($request->numeros_seleccionados);
-
+        
         $sorteo = Sorteo::find($request->id_sorteo);
-
-        $numerosDisponibles = json_decode($sorteo->numeros_disponibles, true);
-
         $admin = User::all();
-
         $pago = Pago::find($request->id_pago);
+
+        
+        if($request->numeros_seleccionados == "aleatorio"){ 
+            $numerosSeleccionados = [];
+            $cantidad_a_seleccionar = $pago->cantidad_de_tickets;
+            $numerosDisponibles = json_decode($sorteo->numeros_disponibles, true);
+            $indicesSeleccionados = array_rand($numerosDisponibles, $cantidad_a_seleccionar);
+            foreach ($indicesSeleccionados as $indice) {
+                $numerosSeleccionados[] = $numerosDisponibles[$indice];
+            }
+
+            // Asegurarse de que $numerosSeleccionados sea siempre un array
+            if (!is_array($numerosSeleccionados)) {
+                $numerosSeleccionados = [$numerosSeleccionados];
+            }
+        }
+
+        //Condicional si los numeros fueron seleccionados
+        else{
+            $numerosSeleccionados = json_decode($request->numeros_seleccionados, true);
+            $numerosDisponibles = json_decode($sorteo->numeros_disponibles, true);
+
+        }
         $pago->estado_pago = 'Confirmado';
         $pago->save();
 
@@ -74,7 +92,10 @@ class TicketController extends Controller
             Mail::to($user->email);
         }
         return redirect()->route('pago.index')->with('success', 'Ticket created successfully.');
+        
     }
+
+
 
     private function buildtoken($length = 8)
     {
@@ -150,8 +171,8 @@ class TicketController extends Controller
     {   
        
         $valorADesbloquear = $request->numero_a_desbloquear;
-        $numerosDisponibles = json_decode($sorteo->numeros_disponibles);
-        $numerosGanadores = json_decode($sorteo->numeros_ganadores);
+        $numerosDisponibles = json_decode($sorteo->numeros_disponibles,true);
+        $numerosGanadores = json_decode($sorteo->numeros_ganadores,true);
 
         $indiceEncontradoEnGanadores = array_search($valorADesbloquear, $numerosGanadores);
 
