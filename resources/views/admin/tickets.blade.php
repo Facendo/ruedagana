@@ -12,7 +12,7 @@
 <body>
 
     <section class="container">
-
+           
         <div class="section_tickets">
             <div>
                 <form action="{{route('ticket.store')}}" method="POST" class="form" id="form">
@@ -25,13 +25,15 @@
                     <input type="hidden" name="correo_cliente" value="{{$cliente->correo}}">
                     <input type="hidden" name="id_pago" value="{{$pago->id_pago}}">
                     <input type="hidden" name="numeros_seleccionados" id="numeros_seleccionados">
-                    <button type="button" onclick="enviarTickets()" id="boton_enviar_tickets">Generar Tickets Seleccionados</button>
-                    <button type="button" onclick="generarTicketAleatorio()" class="button">Generar Numeros Aleatorios</button>
+                    <button type="button" onclick="enviarTickets()" id="boton_enviar_tickets" class="button">Generar Tickets Seleccionados</button>
+                     
                 </form>
             </div>
+            
 
             <div class="container_tickets">
-                <h2 class="section_subtitle">Selecciona los tickets</h2>
+                
+                <h2 class="section_subtitle">Selecciona los tickets para el sorteo {{$sorteo->sorteo_nombre}}</h2>
                 <p>Tickets comprados: <span id="cantidad_comprada">{{ $pago->cantidad_de_tickets }}</span></p>
                 <p>Tickets seleccionados: <span id="contador_seleccionados">0</span></p>
                 <p id="mensaje_validacion" style="color: red;"></p>
@@ -97,9 +99,17 @@
 
 
                 <div class="cont_form">
-                    <form action="#" class="form">
+                    <form action="{{route('ticket.store')}}" class="form" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" name="id_sorteo" value="{{$sorteo->id_sorteo}}">
+                        <input type="hidden" name="cedula_cliente" value="{{$cliente->cedula}}">
+                        <input type="hidden" name="nombre_cliente" value="{{$cliente->nombre}}">
+                        <input type="hidden" name="telefono_cliente" value="{{$cliente->telefono}}">
+                        <input type="hidden" name="correo_cliente" value="{{$cliente->correo}}">
+                        <input type="hidden" name="id_pago" value="{{$pago->id_pago}}">
+                        <input type="hidden" name="numeros_seleccionados" id="numeros_seleccionados" value="aleatorio">
                         <h3 class="sub_inp">Generar tickets aleatorios</h3>
-                        <button class="button" onclick="generarTicketAleatorio()">Generar</button>
+                        <button class="button" >Generar</button>
                     </form>
                 </div>
             </div>
@@ -143,27 +153,7 @@
             }
         }
 
-        function generarTicketAleatorio() {
-            if (numerosDisponibles && numerosDisponibles.length > 0) {
-                const ticketsAleatorios = [];
-                const indicesUsados = new Set(); // Para evitar duplicados
-
-                while (ticketsAleatorios.length < cantidadComprada && indicesUsados.size < numerosDisponibles.length) {
-                    const indiceAleatorio = Math.floor(Math.random() * numerosDisponibles.length);
-                    if (!indicesUsados.has(indiceAleatorio)) {
-                        ticketsAleatorios.push(numerosDisponibles[indiceAleatorio]);
-                        indicesUsados.add(indiceAleatorio);
-                        const checkbox = document.getElementById(`numero_${numerosDisponibles[indiceAleatorio]}`);
-                        if (checkbox) {
-                            checkbox.checked = true;
-                        }
-                    }
-                }
-                actualizarContador(); // Actualizar el contador después de marcar los checkboxes
-            } else {
-                alert('No hay números de tickets disponibles para generar.');
-            }
-        }
+        
 
         // Inicializar el contador al cargar la página
         actualizarContador();
