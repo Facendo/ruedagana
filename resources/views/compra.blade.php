@@ -103,7 +103,7 @@
                 <p class="data">Tickets disponibles: {{$cantidad_disponible}}</p>
                 <input type="number" placeholder="cantidad de tickets" id="cantidad_de_tickets" name="cantidad_de_tickets" class="input_form"  required min="1" max="{{$cantidad_disponible}}">
                 <div class="sumador_de_montos">
-                    <h3>25</h3>
+                    <h3>Monto: BS 25 - $ 5</h3>
                 </div>
                 <label for="referencia">Referencia de pago:</label>
                 <input type="number" placeholder="referencia de pago" id="referencia" name="referencia" class="input_form" required>

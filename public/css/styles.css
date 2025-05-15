@@ -411,13 +411,15 @@ label{
 
 input[type=checkbox]{
     display: none;
+    margin-bottom: 20px;
     
 }
 
 .lbl_check{
-    font-family: "Roboto Mono", monospace;
-    font-weight: 20px;
-
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    
 }
 
 

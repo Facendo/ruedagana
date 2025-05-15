@@ -153,10 +153,32 @@
             }
         }
 
-        
+        function generarTicketAleatorio() {
+           
 
-        // Inicializar el contador al cargar la página
-        actualizarContador();
+            if (numerosDisponibles && numerosDisponibles.length > 0) {
+                const ticketsAleatorios = [];
+                                const indicesUsados = new Set(); // Para evitar duplicados
+
+                                while (ticketsAleatorios.length < cantidadComprada && indicesUsados.size < numerosDisponibles.length) {
+                                    const indiceAleatorio = Math.floor(Math.random() * numerosDisponibles.length);
+                                    if (!indicesUsados.has(indiceAleatorio)) {
+                                        ticketsAleatorios.push(numerosDisponibles[indiceAleatorio]);
+                                        indicesUsados.add(indiceAleatorio);
+                                        const checkbox = document.getElementById(`numero_${numerosDisponibles[indiceAleatorio]}`);
+                                        if (checkbox) {
+                                            checkbox.checked = true;
+                                        }
+                                    }
+                                }
+                                actualizarContador(); // Actualizar el contador después de marcar los checkboxes
+                            } else {
+                                alert('No hay números de tickets disponibles para generar.');            }
+
+                        }
+
+                        // Inicializar el contador al cargar la página
+                        actualizarContador();
     </script>
 
 </body>
