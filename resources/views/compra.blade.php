@@ -78,7 +78,7 @@
 <br><br><br><br>    
 
 @php
-    $numeros_disponibles = json_decode($sorteo->numeros_disponibles);
+    $numeros_disponibles = json_decode($sorteo->numeros_disponibles, true);
     $cantidad_disponible = count($numeros_disponibles);
 @endphp
 

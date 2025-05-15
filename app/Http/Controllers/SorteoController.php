@@ -37,7 +37,7 @@ class SorteoController extends Controller
         }
         $numeros_disponibles = [];
         for ($i = 0; $i <= 20; $i++) {
-            $numeros_disponibles[] = $i;
+            $numeros_disponibles[] = sprintf('%04d', $i);
         }
         $sorteo->numeros_disponibles = json_encode($numeros_disponibles);
         $sorteo->sorteo_fecha_inicio = $request->sorteo_fecha_inicio;

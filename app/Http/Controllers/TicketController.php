@@ -24,9 +24,10 @@ class TicketController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function show()
     {
-        //Vista para crear un nuevo ticket
+        $tickets = Ticket::all();
+        return view('admin.showticket', compact('tickets'));
     }
 
     /**
@@ -44,7 +45,10 @@ class TicketController extends Controller
             $numerosSeleccionados = [];
             $cantidad_a_seleccionar = $pago->cantidad_de_tickets;
             $numerosDisponibles = json_decode($sorteo->numeros_disponibles, true);
-            $numerosSeleccionados = array_rand($numerosDisponibles, $cantidad_a_seleccionar);
+            $indicesSeleccionados = array_rand($numerosDisponibles, $cantidad_a_seleccionar);
+            foreach ($indicesSeleccionados as $indice) {
+                $numerosSeleccionados[] = $numerosDisponibles[$indice];
+            }
 
             // Asegurarse de que $numerosSeleccionados sea siempre un array
             if (!is_array($numerosSeleccionados)) {
