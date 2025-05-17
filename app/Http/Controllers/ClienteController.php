@@ -58,7 +58,7 @@ class ClienteController extends Controller
             $image = $request->file('imagen_comprobante');
             $filename = $image->getClientOriginalName();
             $path = $image->storeAs('comprobantes', $filename, 'public'); // Guarda con el nombre original
-            $pago->imagen_comprobante = 'sorteo/' . $filename; // Guarda la ruta con el nombre original
+            $pago->imagen_comprobante = 'comprobantes/' . $filename; // Guarda la ruta con el nombre original
         }
         $pago->descripcion = " Pago de " . $request->cantidad_de_tickets . " tickets". " En la fecha " . $request->fecha_de_pago;
         $pago->save();

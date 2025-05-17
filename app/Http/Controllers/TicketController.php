@@ -39,7 +39,7 @@ class TicketController extends Controller
         $sorteo = Sorteo::find($request->id_sorteo);
         $admin = User::all();
         $pago = Pago::find($request->id_pago);
-
+        $cliente = Cliente::find($pago->cedula_cliente);
         
         if($request->numeros_seleccionados == "aleatorio"){ 
             $numerosSeleccionados = [];
@@ -86,11 +86,10 @@ class TicketController extends Controller
         $ticket->updated_at = now();
         $sorteo->save();
         $ticket->save();
-
-        Mail::to($ticket->correo_cliente);
-        foreach ($admin as $user) {
-            Mail::to($user->email);
-        }
+    
+        $correo = new \App\Mail\mailCreated($ticket);
+        Mail::to($cliente->correo)->send($correo);
+        
         return redirect()->route('pago.index')->with('success', 'Ticket created successfully.');
         
     }

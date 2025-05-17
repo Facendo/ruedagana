@@ -73,7 +73,6 @@
 
                 <br><br><br><br><br><br><br><br><br><br>
 
-
                 <div class="cont_form">
                     <form action="{{route('ticket.desbloquear',$sorteo)}}" class="form" method="post">
                         @csrf
