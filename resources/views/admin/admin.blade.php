@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
     <link rel="stylesheet" href="{{asset('css/styles.css')}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Cal+Sans&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+    
 
     <title>Panel de Administrador</title>
 </head>
@@ -17,13 +19,20 @@
 
 <!--------------- TABLA DE GESTION  ---------->
 
+<nav id="menu" class="menu">
+    <h2 class="titulo">Panel administrador</h2>
+</nav>
+    
+    <div class="filtro_admin">
+        {{-- Filtrador para la tabla de pagos de boletos --}}
+        <a href="{{route('logout')}}"class="button">Cerrar sesion</a>
+        <a href="{{route('admin.showticket')}}" class="button">Tickets vendidos</a>
+    </div>
 
     
-    <h1 class="section_title">Panel de Administrador</h1>
 
-    {{-- Filtrador para la tabla de pagos de boletos --}}
-    <a href="{{route('logout')}}"class="button">Cerrar sesion</a>
-    <a href="{{route('admin.showticket')}}" class="button">Tickets vendidos</a>
+    
+
     <div id="section_ventas_admin" class="container section_ventas">
         <h2 class="section_subtitle">Tabla de pagos de boletos</h2>
 
@@ -33,6 +42,7 @@
                     <tr>
                         <th>Cedula</th>
                         <th>Referencia</th>
+                        <th>Comprobante</th>
                         <th>Monto</th>
                         <th>Cantidad de Tickets</th>
                         <th>Fecha pago</th>
@@ -42,11 +52,19 @@
                         <th>Tickets</th>
                     </tr>
                 </thead>
+                        <div class="container_modal">
+                            <div class="container_imagen_modal">
+                                <img src="{{asset('storage/'.$pago->imagen_comprobante)}}" alt="Imagen modal" class="imagen_modal">
+                            </div>
+                        </div>
                 <tbody>
                     @foreach($pagos as $pago)
+                    
                     <tr>
                         <td>{{ $pago->cedula_cliente }}</td>
-                        <td>{{ $pago->referencia }}</td>
+                        <td>{{ $pago->referencia }} </td>
+                        <td><button class="button button_ref">Referencia</button></td>
+                        
                         <td>{{ $pago->monto }}</td>
                         <td>{{ $pago->cantidad_de_tickets }}</td>
                         <td>{{ $pago->fecha_pago }}</td>
@@ -68,17 +86,19 @@
                         </td>
                     </tr>
                     @endforeach
-                    <div class="pagination">
-                        {{ $pagos->links() }}
-                    </div>
                     
                 </tbody>
+                
             </table>
         </div>
     </div>
     
 
     
+
+     <div class="pagination">
+           {{ $pagos->links() }} 
+    </div>
     
     
     <br><br><br><br><br><br><br><br><br><br>
@@ -195,6 +215,24 @@
             </div>
     </div>
 <br><br><br><br>
+
+    <script>
+        
+        const buttons = document.querySelectorAll('.button_ref');
+        const modal = document.querySelector('.container_modal');
+        const closeModal = document.querySelector('.container_modal');
+
+       
+        buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            modal.style.left = "0%";
+        });
+    });
+
+        closeModal.addEventListener('click', function() {
+            closeModal.style.left= '-100%';
+        });
+    </script>
         
 </body>
 </html>
