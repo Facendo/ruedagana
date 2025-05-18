@@ -44,8 +44,13 @@
                         <h1 style='color: gold;'>-{{$numero}}</h1>
                     @endforeach
                 </div>
-                <p class="mail_p">El sorteo se realizará el viernes 16 de mayo y se basa en los resultados de la Lotería de Medellín</p>
+                
+                
+
+                <br>
+                <p class="mail_p">Te deseamos la mejor de las suertes. Gracias por apoyar nuestros sorteos. ¡Recuerda seguirnos en Instagram para estar pendiente de los ganadores!</p>
                 <p class="mail_p">¡Te deseamos mucha suerte y bendiciones!</p>
+                <br>
                 <p style='color: gray;'>— Rueda y Gana con Nosotros</p>
     </div>
     
