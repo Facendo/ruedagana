@@ -13,11 +13,16 @@ class mailCreated extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     */
+    public $numero;
+    public $nombre;
+    public $token;
+    public $sorteo;
+
+
     public function __construct($ticket)
     {
+
+
         $this->numero = json_decode($ticket->numeros_seleccionados);
         $this->nombre = $ticket->nombre_cliente;
         $this->token = $ticket->ticket_token;

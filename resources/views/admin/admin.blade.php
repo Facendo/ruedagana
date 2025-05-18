@@ -52,19 +52,20 @@
                         <th>Tickets</th>
                     </tr>
                 </thead>
-                        <div class="container_modal">
-                            <div class="container_imagen_modal">
-                                <img src="{{asset('storage/'.$pago->imagen_comprobante)}}" alt="Imagen modal" class="imagen_modal">
-                            </div>
-                        </div>
+                        
                 <tbody>
                     @foreach($pagos as $pago)
                     
                     <tr>
                         <td>{{ $pago->cedula_cliente }}</td>
                         <td>{{ $pago->referencia }} </td>
-                        <td><button class="button button_ref">Referencia</button></td>
-                        
+                        <td><button class="button button_ref">Referencia</button>
+                        <div class="container_modal">
+                            <div class="container_imagen_modal">
+                                <img src="{{ asset('storage/' . $pago->imagen_comprobante) }}" alt="Imagen modal" class="imagen_modal">
+                            </div>
+                        </div>
+                        </td>
                         <td>{{ $pago->monto }}</td>
                         <td>{{ $pago->cantidad_de_tickets }}</td>
                         <td>{{ $pago->fecha_pago }}</td>
