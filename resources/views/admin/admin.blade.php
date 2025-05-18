@@ -52,13 +52,15 @@
                         <th>Tickets</th>
                     </tr>
                 </thead>
-                        <div class="container_modal">
+                         
+                <tbody>
+                    @foreach($pagos as $pago)
+
+                    <div class="container_modal">
                             <div class="container_imagen_modal">
                                 <img src="{{asset('storage/'.$pago->imagen_comprobante)}}" alt="Imagen modal" class="imagen_modal">
                             </div>
-                        </div>
-                <tbody>
-                    @foreach($pagos as $pago)
+                        </div>      
                     
                     <tr>
                         <td>{{ $pago->cedula_cliente }}</td>
@@ -116,20 +118,20 @@
                     <h3 class="sub_inp">Registra sorteo</h3>
                     @csrf
                     <label for="sorteo_nombre">Nombre:</label>
-                    <input type="text" name="sorteo_nombre" id="sorteo_nombre" placeholder="Nombre del sorteo" class="input_form">
+                    <input type="text" name="sorteo_nombre" id="sorteo_nombre" placeholder="Nombre del sorteo" class="input_form" require>
                     <label for="sorteo_fecha_inicio">Fecha de inicio:</label>
-                    <input type="date" name="sorteo_fecha_inicio" id="sorteo_fecha_inicio" placeholder="Fecha de inicio del sorteo" class="input_form">
+                    <input type="date" name="sorteo_fecha_inicio" id="sorteo_fecha_inicio" placeholder="Fecha de inicio del sorteo" class="input_form" require>
                     <label for="sorteo_fecha_fin">Fecha de fin:</label>
-                    <input type="date" name="sorteo_fecha_fin" id="sorteo_fecha_fin" placeholder="Fecha de fin del sorteo" class="input_form">
+                    <input type="date" name="sorteo_fecha_fin" id="sorteo_fecha_fin" placeholder="Fecha de fin del sorteo" class="input_form" require>
                     <label for="sorteo_descripcion">Descripcion:</label>
-                    <input type="text" name="sorteo_descripcion" id="sorteo_descripcion" placeholder="Descripcion del sorteo" class="input_form">
+                    <input type="text" name="sorteo_descripcion" id="sorteo_descripcion" placeholder="Descripcion del sorteo" class="input_form" require>
 
                     <label for="precio_boleto_bs">Precio boleto (bs):</label>
-                    <input type="text" name="precio_boleto_bs" id="precio_boleto_bs" placeholder="Precio del boleto en bolivares" class="input_form">
+                    <input type="text" name="precio_boleto_bs" id="precio_boleto_bs" placeholder="Precio del boleto en bolivares" class="input_form" require>
                     <label for="precio_boleto_dolar">Precio boleto (dolar):</label>
-                    <input type="text" name="precio_boleto_dolar" id="precio_boleto_dolar" placeholder="Precio del boleto en dolares" class="input_form">
+                    <input type="text" name="precio_boleto_dolar" id="precio_boleto_dolar" placeholder="Precio del boleto en dolares" class="input_form" require>
                     <label for="sorteo_imagen" class="file">Imagen:</label>
-                    <input type="file" name="sorteo_imagen" id="sorteo_imagen" placeholder="Imagen del sorteo" class="input_file" accept="image/*">
+                    <input type="file" name="sorteo_imagen" id="sorteo_imagen" placeholder="Imagen del sorteo" class="input_file" accept="image/*" require>
                     
                     <br>
 
