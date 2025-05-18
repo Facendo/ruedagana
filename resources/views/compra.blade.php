@@ -13,6 +13,10 @@
 
 <body>
 
+ <nav id="menu" class="menu">
+    <h2 class="titulo">Compra de tickets</h2>
+ </nav>
+
 <h2 class="section_subtitle">REGISTRAR COMPRA</h2>
 
 <section id="cuentas">
@@ -82,6 +86,13 @@
     $cantidad_disponible = count($numeros_disponibles);
 @endphp
 
+<div class="container_modal">
+     <div class="container_msg_modal">
+
+         
+     </div>
+ </div>
+
 <section id="compra" class="container container_compra">
         <div class="cont_form cont_form_compra">
  
@@ -125,9 +136,10 @@
                     <label for="imagen_comprobante" class="file">Click para enviar comprobante de pago</label>
                     <input type="file" id="imagen_comprobante" name="imagen_comprobante" accept="image/png, image/jpeg, image/jpg" class="input_file"  required>
                 </div>
-                <button class="button" type="submit">Enviar</button>
+                <button class="button btn_modal" type="submit">Enviar</button>
             </form>
         </div>
 </section>
+
 </body>
 </html>
