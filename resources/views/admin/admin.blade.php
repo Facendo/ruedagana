@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Cal+Sans&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rubik+Mono+One&display=swap" rel="stylesheet">
-    
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('img/favicon-32x32.png')}}">
 
     <title>Panel de Administrador</title>
 </head>
@@ -58,18 +58,14 @@
                         
                 <tbody>
                     @foreach($pagos as $pago)
-                            <div class="container_modal">
-                            <div class="container_imagen_modal">
-                                <img src="{{asset('storage/'.$pago->imagen_comprobante)}}" alt="Imagen modal" class="imagen_modal">
-                            </div>
-                            </div>
+                            
                     <tr>
                         <td>{{ $pago->cedula_cliente }}</td>
                         <td>{{ $pago->referencia }} </td>
                         <td><button class="button button_ref">Referencia</button>
                         <div class="container_modal">
                             <div class="container_imagen_modal">
-                                <img src="{{ asset('storage/' . $pago->imagen_comprobante) }}" alt="Imagen modal" class="imagen_modal">
+                                <img src="{{ asset('storage/' . $pago->imagen_comprobante) }}" alt="imagen_modal" class="imagen_modal">
                             </div>
                         </div>
                         </td>
