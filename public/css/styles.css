@@ -541,6 +541,15 @@ form.form_tickets{
     align-items: center;
  }
 
+  .container_msg_modal{
+    width: 40%;
+    background-color: rgb(77, 78, 73);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
  .imagen_modal{
     width: 400px;
     height: 700px;

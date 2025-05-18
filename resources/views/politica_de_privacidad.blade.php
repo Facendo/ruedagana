@@ -24,6 +24,11 @@
 </style>
 
 <body>
+
+ <nav id="menu" class="menu">
+        <h2 class="titulo">Politicas de Privacidad</h2>
+  </nav>
+
   <h1>Política de Privacidad</h1> <br><br><br>
   <p>En "Rueda y Gana con Nosotros", valoramos y respetamos tu privacidad. Los datos personales proporcionados al participar en nuestros sorteos serán utilizados exclusivamente para la gestión del sorteo, verificación de pagos, envío de boletos y contacto con los ganadores.</p>
   <p>No compartimos ni vendemos tu información a terceros. Toda la información es almacenada de forma segura.</p>

@@ -11,6 +11,10 @@
 </head>
 <body>
 
+ <nav id="menu" class="menu">
+     <h2 class="titulo">Gestion de Tickets</h2>
+ </nav>
+
     <section class="container">
            
         <div class="section_tickets">
