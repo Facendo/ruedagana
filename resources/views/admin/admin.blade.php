@@ -25,7 +25,10 @@
     
     <div class="filtro_admin">
         {{-- Filtrador para la tabla de pagos de boletos --}}
-        <a href="{{route('logout')}}"class="button">Cerrar sesion</a>
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button type="submit" class='button'>Cerrar Sesión</button>
+        </form>
         <a href="{{route('admin.showticket')}}" class="button">Tickets vendidos</a>
     </div>
 
