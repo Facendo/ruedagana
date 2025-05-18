@@ -22,7 +22,14 @@
   }
 </style>
 
+
+
 <body>
+
+ <nav id="menu" class="menu">
+     <h2 class="titulo">Terminos y Condiciones</h2>
+  </nav>
+
   <h1>Términos y Condiciones</h1> <br><br><br>
   <p>Al participar en nuestros sorteos aceptas los siguientes términos:</p> <br>
   <ul>
