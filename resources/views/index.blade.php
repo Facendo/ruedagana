@@ -43,6 +43,7 @@
                     <p class="text_center">y tú solo tienes que jugar pa’ ganar.</p>
                     <br>
                     <p class="text_center">Bienvenido a donde los sueños se hacen realidad: ¡Rueda y Gana con Nosotros!”</p>
+
                     <a href="#" class="button button_ini">Participar</a>
                 </div>
             </div>
