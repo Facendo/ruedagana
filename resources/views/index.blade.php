@@ -39,7 +39,10 @@
                 
                 <div class="containertext_presentacion">
                     <h1 class="text_presentacion">¡RUEDA Y GANA CON NOSOTROS!</h1>
-                    <p class="text_center">Participa para ganar increibles premios cada semana, por tan solo 35bs</p>
+                    <p class="text_center">“Aquí no hay suerte, hay propósito. Dios guía cada jugada </p>
+                    <p class="text_center">y tú solo tienes que jugar pa’ ganar.</p>
+                    <br>
+                    <p class="text_center">Bienvenido a donde los sueños se hacen realidad: ¡Rueda y Gana con Nosotros!”</p>
                     <a href="#" class="button button_ini">Participar</a>
                 </div>
             </div>

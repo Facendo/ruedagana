@@ -11,21 +11,6 @@
     <title>Panel de tickets</title>
 </head>
 <body>
-    
-        <br>
-        <section id="compra" class="container container_compra">
-        <div class="cont_form cont_form_compra">
-            
-            <form action="{{route('admin.ticket')}}" method="GET" class="form" >
-            <label>
-            Buscar numero
-            </label>
-            <input type="text" class="input_form" id="numero" name="numero">
-            <button class="button btn_modal" type="submit">Buscar numero</button>
-            </form>
-        </div>
-        </section>
-    
 
     <div id="section_ventas_admin" class="container">
         <h2 class="section_subtitle">TABLA DE TICKETS CREADOS</h2>
@@ -44,7 +29,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($tickets as $ticket)
+                   
                     <tr>
                         <td>{{ $ticket->id_ticket}}</td>
                         <td>{{ $ticket->ticket_token}}</td>
@@ -58,7 +43,7 @@
                         <td>{{ $numeros_comprados}}</td>
                         <td>{{ $ticket->nombre_sorteo}}</td>
                     </tr>
-                    @endforeach
+                    
                 </tbody>
             </table>
         </div>
