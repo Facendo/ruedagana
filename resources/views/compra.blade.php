@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="..\..\resources\css\styles.css">
     <link rel="stylesheet" href="{{asset('css/styles.css')}}">
+    <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Cal+Sans&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rubik+Mono+One&display=swap" rel="stylesheet">
@@ -21,6 +22,24 @@
 <h2 class="section_subtitle">REGISTRAR COMPRA</h2>
 
 <section id="cuentas">
+
+        <div class="cont_text_compra">
+            <p class="text_compra">
+            ¡Gracias por tu compra!
+Hemos recibido tu solicitud exitosamente.
+
+Tu pago será verificado manualmente por nuestro equipo en las próximas horas.
+Una vez confirmado, recibirás tus boletos del sorteo directamente en el correo que registraste.
+
+Recuerda:
+
+	•	Mantente pendiente de tu bandeja de entrada (y también revisa el correo no deseado).
+
+🙏 Que Dios bendiga tu suerte.
+¡Rueda y gana con nosotros! 🏍️💨
+        </p>
+        </div>
+
 
         <div class="container">
             <div class="container_card">
@@ -87,12 +106,6 @@
     $cantidad_disponible = count($numeros_disponibles);
 @endphp
 
-<div class="container_modal">
-     <div class="container_msg_modal">
-
-         
-     </div>
- </div>
 
 <section id="compra" class="container container_compra">
         <div class="cont_form cont_form_compra">

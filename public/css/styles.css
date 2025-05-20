@@ -2,16 +2,22 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;  
+
 }
 
 /* ------ API FONT ------- */
 
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
 
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     color: #fff;
     font-family: arial;
     background-color: rgb(35, 35, 35);
+    
 }
 
 .container{
@@ -183,7 +189,8 @@ img.logo_binance{
 .card_datos{
     width: 300px;
     height: 300px;
-    background-color: rgb(55, 55, 55);  
+    background-color: rgb(55, 55, 55);
+    margin: 30px;  
     display: flex;
     justify-content: center;
     align-items: center;
@@ -535,7 +542,6 @@ form.form_tickets{
 
  .container_imagen_modal{
     width: 40%;
-    border: 1px solid red;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -602,6 +608,14 @@ form.form_tickets{
 
 .title_mail{
     font-family: "Alfa Slab One", serif;
+}
+
+.cont_text_compra{
+    width: 70%;
+    padding: 25px;
+    border-radius: 10px;
+    margin: 30px auto;
+    background-color: rgb(55, 55, 55);
 }
 
 
