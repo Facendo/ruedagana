@@ -29,6 +29,15 @@ class TicketController extends Controller
         $tickets = Ticket::all();
         return view('admin.showticket', compact('tickets'));
     }
+    
+    public function showticket(Request $request)
+    {
+    $ticket = Ticket::whereJsonContains('numeros_seleccionados', $request->numero)->first();
+
+    if ($ticket) {
+        return view('admin.ticket', compact('ticket'));
+    } 
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -95,14 +104,7 @@ class TicketController extends Controller
     }
 
 
-    public function showticket(Request $request)
-    {
-    $ticket = Ticket::whereJsonContains('numeros_seleccionados', $request->numero)->first();
-
-    if ($ticket) {
-        return view('admin.ticket', compact('ticket'));
-    } 
-    }
+    
     private function buildtoken($length = 8)
     {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
