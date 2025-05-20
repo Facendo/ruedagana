@@ -104,7 +104,7 @@ class TicketController extends Controller
     }
 
 
-
+    
     private function buildtoken($length = 8)
     {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';

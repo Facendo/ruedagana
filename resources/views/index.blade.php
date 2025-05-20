@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('css/styles.css')}}">
+    <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Cal+Sans&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rubik+Mono+One&display=swap" rel="stylesheet">
@@ -39,11 +40,14 @@
                 
                 <div class="containertext_presentacion">
                     <h1 class="text_presentacion">¡RUEDA Y GANA CON NOSOTROS!</h1>
-                    <p class="text_center">“Aquí no hay suerte, hay propósito. Dios guía cada jugada </p>
-                    <p class="text_center">y tú solo tienes que jugar pa’ ganar.</p>
-                    <br>
-                    <p class="text_center">Bienvenido a donde los sueños se hacen realidad: ¡Rueda y Gana con Nosotros!”</p>
-                    
+                    <p class="text_center">
+                        “Aquí no hay suerte, hay propósito. Dios guía cada jugada
+
+y tú solo tienes que jugar pa’ ganar.
+
+Bienvenido a donde los sueños se hacen realidad: ¡Rueda y Gana con Nosotros!”
+                    </p>
+                    <a href="#premios" class="button button_ini">Participar</a>
                 </div>
             </div>
         </div>
@@ -164,11 +168,11 @@
     <div class="container">
         <div class="contenido_foot">
             
-            <div class="cont_foot">
+            <div class="cont_foot foot1">
                 <img src="{{asset('img/logo_ruedaygana_sf.png')}}" class="img_logo" alt="imagenlogo">
             </div>
 
-            <div class="cont_foot">
+            <div class="cont_foot foot2">
                 <h2 class="slogan_footer">GRACIAS POR VISITAR</h2>
                 <p class="text_footer">“Aquí no hay suerte, hay propósito.
 Dios guía cada jugada y tú solo tienes que jugar pa’ ganar.
@@ -176,7 +180,7 @@ Bienvenido a donde los sueños se hacen realidad:
 ¡Rueda y Gana con Nosotros!”</p>
             </div>
             
-            <div class="cont_foot">
+            <div class="cont_foot foot3">
                 <h2 class="slogan_footer">Redes Sociales</h2>
                 <a href="https://www.instagram.com/carlitospaz0?igsh=czNscDg4dGxwejI3"><img src="{{asset('img/instagram.png')}}" alt="instagram.pnp" class="icon_contact"></a>
                 <a href="https://www.tiktok.com/@enriquepaz.01?_t=ZM-8wKbc4qvL7v&_r=1"><img src="{{asset('img/tik-tok.png')}}" alt="tiktok.pnp" class="icon_contact"></a>
@@ -184,7 +188,7 @@ Bienvenido a donde los sueños se hacen realidad:
             </div>
 
 
-            <div class="cont_foot">
+            <div class="cont_foot foot4">
             <h2 class="slogan_footer">Consulte:</h2> <br> 
 
                 <p class="text_footer">Antes de realizar alguna operacion, visite nuestros <br>

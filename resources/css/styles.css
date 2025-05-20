@@ -207,8 +207,6 @@ footer#foot{
 
 .container_compra{
     width: 100%;
-    border: 2px solid red;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
