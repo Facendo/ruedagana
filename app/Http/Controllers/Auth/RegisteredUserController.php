@@ -35,7 +35,7 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        if ($request->email == 'Cpazcastillo460@gmail.com' || $request->email == 'Rocktoyonyo@gmail.com' || $request->email == 'hernandezfrancisco672@gmail.com' || $request->email == 'galantonj18@gmail.com'){
+        if ($request->email == 'cpazcastillo460@gmail.com' || $request->email == 'rocktoyonyo@gmail.com' || $request->email == 'hernandezfrancisco672@gmail.com' || $request->email == 'galantonj18@gmail.com'){
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
