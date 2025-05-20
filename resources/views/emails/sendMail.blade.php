@@ -44,9 +44,10 @@
                         <h1 style='color: gold;'>-{{$numero}}</h1>
                     @endforeach
                 </div>
+                <br>
                 
-                
-
+                <p class="mail_p">NO BORRES ESTE CORREO ELECTRONICO!</p>
+                <p class="mail_p">Alguna duda, comuníquese a nuestras redes sociales.</p>
                 <br>
                 <p class="mail_p">Te deseamos la mejor de las suertes. Gracias por apoyar nuestros sorteos. ¡Recuerda seguirnos en Instagram para estar pendiente de los ganadores!</p>
                 <p class="mail_p">¡Te deseamos mucha suerte y bendiciones!</p>

@@ -25,6 +25,10 @@
 
  @media (max-width: 1170px) {
 
+    .card{
+        width: 60%;
+    }
+
 
     h2.slogan_footer {
         font-size: 15px;
@@ -50,13 +54,13 @@
     }
 
     footer#foot{
-        height: 80vh;
+        height: 60vh;
     }
  }
 
  @media (max-width: 210px){
     footer#foot{
-        height: 90vh;
+        height: 70vh;
     }
  }
 
@@ -69,5 +73,9 @@
  @media (max-width: 830px){
     .cont_form{
         width: 80%;
+    }
+
+    .card{
+        width: 70%;
     }
  }

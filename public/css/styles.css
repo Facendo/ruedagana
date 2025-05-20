@@ -610,12 +610,45 @@ form.form_tickets{
     font-family: "Alfa Slab One", serif;
 }
 
-.cont_text_compra{
+.barra_cont{
     width: 70%;
     padding: 25px;
     border-radius: 10px;
     margin: 30px auto;
     background-color: rgb(55, 55, 55);
+}
+
+.cont_pago_compra{
+    width: 100%;
+    height: 150px;
+    border-radius: 5px;
+    background-color: rgb(100,100,100);
+    padding-bottom: 20px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.cont_element_calc{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calc_pago{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+.btn_calc{
+    font-size: 20px;
+    font-weight: bold;
 }
 
 
