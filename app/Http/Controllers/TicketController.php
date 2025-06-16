@@ -104,6 +104,7 @@ class TicketController extends Controller
     }
 
 
+
     public function showticket(Request $request)
     {
     $ticket = Ticket::whereJsonContains('numeros_seleccionados', $request->numero)->first();
@@ -112,6 +113,7 @@ class TicketController extends Controller
         return view('admin.ticket', compact('ticket'));
     } 
     }
+
     private function buildtoken($length = 8)
     {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
